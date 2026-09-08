@@ -1,19 +1,27 @@
 # Personal site — https://github.com/ALBE1405/who-am-I
 #
+#   make                  Build, commit, and push to GitHub
+#   make MSG="..."        Same, with a custom commit message
 #   make install          Install dependencies
 #   make dev              Local preview
 #   make build            Production build
-#   make deploy           Build, commit, and push to GitHub
-#   make deploy MSG="..." Same, with a custom commit message
 
 REMOTE_URL ?= https://github.com/ALBE1405/who-am-I.git
 BRANCH ?= main
 MSG ?= Update personal website
 
+.DEFAULT_GOAL := deploy
+
 .PHONY: help install dev build lint format start checkin deploy
+
+node_modules: package-lock.json package.json
+	npm ci
+	@touch node_modules
 
 help:
 	@printf '%s\n' \
+	  'make                  Build, commit, and push to GitHub' \
+	  'make MSG="..."        Same, with a custom commit message' \
 	  'make install          Install npm dependencies' \
 	  'make dev              Start the local preview server' \
 	  'make build            Create a production build' \
@@ -21,22 +29,20 @@ help:
 	  'make format           Format the project' \
 	  'make start            Build and preview the production output' \
 	  'make checkin          Commit and push to GitHub' \
-	  'make deploy           Build, then commit and push to GitHub' \
-	  'make deploy MSG="..." Deploy with a custom commit message'
+	  'make deploy           Same as make'
 
-install:
-	npm ci
+install: node_modules
 
-dev:
+dev: node_modules
 	npm run dev
 
-build:
+build: node_modules
 	npm run build
 
-lint:
+lint: node_modules
 	npm run lint
 
-format:
+format: node_modules
 	npm run format
 
 start: build
