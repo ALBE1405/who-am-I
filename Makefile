@@ -48,7 +48,10 @@ dev: node_modules
 	npm run dev
 
 build: node_modules
-	npm run build
+	GITHUB_PAGES=true npm run build
+	rm -rf docs
+	cp -R dist docs
+	touch docs/.nojekyll
 
 preview: build
 	@printf '\nOpen locally: %s\n\n' "$(PREVIEW_URL)"
