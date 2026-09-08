@@ -43,8 +43,12 @@ urls:
 install: node_modules
 
 dev: node_modules
-	@printf '\nOpen locally: %s\n\n' "$(LOCAL_URL)"
-	npm run dev
+	@if lsof -nP -iTCP:5173 -sTCP:LISTEN >/dev/null 2>&1; then \
+		printf '\nAlready running. Open locally: %s\n\n' "$(LOCAL_URL)"; \
+	else \
+		printf '\nOpen locally: %s\n\n' "$(LOCAL_URL)"; \
+		npm run dev; \
+	fi
 
 build: node_modules
 	GITHUB_PAGES=true npm run build
