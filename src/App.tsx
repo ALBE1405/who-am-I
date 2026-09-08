@@ -233,7 +233,7 @@ export default function App() {
               <div className="skill-row">
                 <h3>Education</h3>
                 <p>
-                  Bachelor of Engineering, Information Technology
+                  Bachelor of Engineering, Electronics and Communication
                   <br />
                   Diploma, Electronics & Communication Engineering
                   <br />
