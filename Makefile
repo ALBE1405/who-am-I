@@ -24,7 +24,7 @@ node_modules: package-lock.json package.json
 
 help:
 	@printf '%s\n' \
-	  'make                  Build, commit, and push to GitHub Pages' \
+	  'make                  Build, push, then open the local site' \
 	  'make MSG="..."        Same, with a custom commit message' \
 	  'make install          Install npm dependencies' \
 	  'make dev              Start the local preview server' \
@@ -37,7 +37,6 @@ urls:
 	@printf '\n%s\n' \
 	  'See the site here:' \
 	  "  Local:  $(LOCAL_URL)" \
-	  "          run: make dev" \
 	  "  Live:   $(LIVE_URL)" \
 	  ''
 
@@ -76,3 +75,4 @@ checkin:
 
 deploy: build checkin
 	@$(MAKE) urls
+	@$(MAKE) dev
