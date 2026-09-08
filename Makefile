@@ -1,6 +1,7 @@
 # Personal site — https://github.com/ALBE1405/who-am-I
+# Live site after deploy: https://albe1405.github.io/who-am-I/
 #
-#   make                  Build, commit, and push to GitHub
+#   make                  Build, commit, and push (GitHub Pages deploys)
 #   make MSG="..."        Same, with a custom commit message
 #   make install          Install dependencies
 #   make dev              Local preview
@@ -9,10 +10,13 @@
 REMOTE_URL ?= https://github.com/ALBE1405/who-am-I.git
 BRANCH ?= main
 MSG ?= Update personal website
+LOCAL_URL ?= http://localhost:5173
+PREVIEW_URL ?= http://localhost:4173
+LIVE_URL ?= https://albe1405.github.io/who-am-I/
 
 .DEFAULT_GOAL := deploy
 
-.PHONY: help install dev build lint format start checkin deploy
+.PHONY: help install dev build preview start checkin deploy urls
 
 node_modules: package-lock.json package.json
 	npm ci
@@ -20,33 +24,37 @@ node_modules: package-lock.json package.json
 
 help:
 	@printf '%s\n' \
-	  'make                  Build, commit, and push to GitHub' \
+	  'make                  Build, commit, and push to GitHub Pages' \
 	  'make MSG="..."        Same, with a custom commit message' \
 	  'make install          Install npm dependencies' \
 	  'make dev              Start the local preview server' \
-	  'make build            Create a production build' \
-	  'make lint             Lint the project' \
-	  'make format           Format the project' \
-	  'make start            Build and preview the production output' \
-	  'make checkin          Commit and push to GitHub' \
-	  'make deploy           Same as make'
+	  'make build            Create a static production build' \
+	  'make preview          Preview the production build' \
+	  'make checkin          Commit and push to GitHub'
+	@$(MAKE) urls
+
+urls:
+	@printf '\n%s\n' \
+	  'See the site here:' \
+	  "  Local:  $(LOCAL_URL)" \
+	  "          run: make dev" \
+	  "  Live:   $(LIVE_URL)" \
+	  ''
 
 install: node_modules
 
 dev: node_modules
+	@printf '\nOpen locally: %s\n\n' "$(LOCAL_URL)"
 	npm run dev
 
 build: node_modules
 	npm run build
 
-lint: node_modules
-	npm run lint
+preview: build
+	@printf '\nOpen locally: %s\n\n' "$(PREVIEW_URL)"
+	npm run preview
 
-format: node_modules
-	npm run format
-
-start: build
-	npm run start
+start: preview
 
 checkin:
 	@git rev-parse --is-inside-work-tree >/dev/null
@@ -64,3 +72,4 @@ checkin:
 	git push -u origin "HEAD:$(BRANCH)"
 
 deploy: build checkin
+	@$(MAKE) urls
