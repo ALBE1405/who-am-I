@@ -1,0 +1,177 @@
+.sunil-photo-hold {
+  background: #edf0f1;
+}
+
+.sunil-carousel {
+  --visible: 2;
+  margin-top: 8px;
+}
+
+.sunil-carousel-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 52px;
+  align-items: center;
+  gap: 18px;
+}
+
+.sunil-carousel-stage {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.sunil-carousel-track {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  transition: transform 0.35s ease;
+}
+
+.sunil-carousel-slide {
+  flex: 0 0 calc((100% - (20px * (var(--visible) - 1))) / var(--visible));
+  min-width: 0;
+}
+
+.sunil-carousel-slide .project {
+  padding-top: 16px;
+}
+
+.sunil-carousel-slide .project h3 {
+  font-size: 1.25rem;
+  margin: 14px 0 10px;
+}
+
+.sunil-carousel-slide .project p {
+  font-size: 0.88rem;
+}
+
+.sunil-carousel-btn {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid #d8e0ea;
+  border-radius: 50%;
+  padding: 0;
+  font: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #174bd5;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sunil-carousel-btn:hover:not(:disabled) {
+  border-color: #174bd5;
+}
+
+.sunil-carousel-btn:disabled {
+  color: #9aa8b8;
+  cursor: default;
+}
+
+.sunil-carousel-btn:focus-visible {
+  outline: 3px solid #5486ff;
+  outline-offset: 4px;
+}
+
+.sunil-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.sunil-carousel-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #d8e0ea;
+  cursor: pointer;
+}
+
+.sunil-carousel-dots button.is-active {
+  background: #174bd5;
+}
+
+.sunil-bridge-card {
+  border-top: 2px solid #174bd5;
+  padding-top: 16px;
+}
+
+.sunil-bridge-card span {
+  display: block;
+  color: #174bd5;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.sunil-bridge-card h3 {
+  margin: 0 0 12px;
+}
+
+.sunil-bridge-card p {
+  margin: 0;
+  color: #516074;
+  font-size: 0.95rem;
+}
+
+.sunil-history {
+  margin-top: 12px;
+  color: #b9c8dc;
+  font-size: 0.95rem;
+}
+
+.sunil-history summary {
+  cursor: pointer;
+  color: #edf3ff;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sunil-history p {
+  margin: 0 0 10px;
+}
+
+.sunil-quotes blockquote {
+  margin: 0 0 40px;
+  padding: 0;
+  border: 0;
+}
+
+.sunil-quotes p {
+  margin: 0 0 14px;
+  font-size: 1.45rem;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  color: #152438;
+}
+
+.sunil-quotes footer {
+  font-size: 0.8rem;
+  color: #516074;
+  padding: 0;
+}
+
+@media (max-width: 760px) {
+  .sunil-carousel {
+    --visible: 1;
+  }
+
+  .sunil-carousel-track {
+    gap: 0;
+  }
+
+  .sunil-carousel-slide {
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunil-carousel-track {
+    transition: none;
+  }
+}
