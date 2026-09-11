@@ -185,7 +185,7 @@ export default function AlbertPage() {
                   <span>Alpharetta / Remote</span>
                 </div>
                 <h3>Relevantz Technology Services</h3>
-                <p className="role">Forward Deployed / Solution Engineer · Healthcare Platforms</p>
+                <p className="role">Solution Engineer · Healthcare Platforms</p>
                 <p>
                   Customer-embedded engineering for a leading healthcare data connectivity company. I bridge operational
                   needs and technical delivery across provider, EHR, and national pharmacy ecosystems.
