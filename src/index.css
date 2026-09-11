@@ -12,3 +12,11 @@
 @media(max-width:900px){.skyline-hero{min-height:520px}.skyline-hero .hero-photo{object-position:center 40%}.skyline-hero .hero-shade{background:linear-gradient(90deg,#f7f9fb 0%,rgba(247,249,251,.92) 28%,rgba(247,249,251,.5) 50%,transparent 74%)}}
 @media(max-width:600px){.skyline-hero .hero-photo{height:220px;object-position:center 45%}}
 
+.projects{gap:40px}
+.project-top{align-items:flex-start;min-height:0}
+.project .eyebrow{line-height:1.45;max-width:16rem}
+.project h3{margin:18px 0 10px;font-size:clamp(1.35rem,1.8vw,1.55rem)}
+.project .project-name{min-height:0;margin-bottom:12px}
+.project p{margin-bottom:12px}
+.project p:last-of-type{margin-bottom:16px}
+

@@ -2,10 +2,13 @@ const projects = [
   {
     number: '01',
     category: 'APPLIED AI · INDEPENDENT WORK',
-    title: 'Turning documents into grounded answers.',
+    title: 'Turning unstructured information into grounded answers.',
     name: 'Knowledge Studio · Document Intelligence',
-    description:
-      'I built a document intelligence platform with RAG, combining BM25 lexical search and vector retrieval with reciprocal rank fusion. Tenant and workspace authorization checks run before retrieval. Google Drive connects through OAuth, with on-demand processing of relevant files; uploads, local folders, and website content use the same ingestion pipeline. Progressive indexing makes text searchable before embeddings finish, with optional OCR and table enrichment. Chat, editing, and comparison use retrieved evidence and citations, with configurable reranking support.',
+    paragraphs: [
+      'I built a document intelligence platform using RAG, BM25 lexical search, vector retrieval, and Reciprocal Rank Fusion (RRF) to turn unstructured documents into searchable, evidence-grounded knowledge.',
+      'Tenant and workspace authorization are enforced before retrieval, ensuring that responses are generated only from content the user is permitted to access. Google Drive connects through OAuth, while uploaded files, local folders, and website content flow through a unified ingestion pipeline.',
+      'The platform progressively indexes text before embeddings are added, with optional OCR and table enrichment when needed. Chat, editing, and comparison experiences use retrieved evidence and citations, with configurable reranking to improve retrieval quality.',
+    ],
     stack: ['Python / FastAPI', 'RAG · BM25 · pgvector', 'Google Drive OAuth', 'Authorization-aware retrieval'],
   },
   {
@@ -13,17 +16,23 @@ const projects = [
     category: 'HEALTHCARE DATA EXCHANGE',
     title: 'Connecting medical records at scale.',
     name: 'Medical Record Retrieval',
-    description:
-      'I build and maintain a medical record retrieval platform with a Python and Django backend and a Next.js frontend. The platform supports secure request lifecycle management across healthcare provider networks, with REST APIs, portal workflows, and file-based integrations. Celery runs background tasks, while tenant-specific feature flags control which capabilities are enabled for each organization. My work also covers AWS infrastructure, secure document exchange, quality checks, audit trails, and the security and deployment processes that keep the application running.',
-    stack: ['Python · Django', 'Next.js', 'Celery', 'Tenant feature flags', 'AWS · REST APIs'],
+    paragraphs: [
+      'I build and maintain a medical record retrieval platform with a Python/Django backend and Next.js frontend. The platform supports secure request lifecycle management across healthcare provider networks through REST APIs, portal workflows, and file-based integrations.',
+      'Celery handles background processing, while tenant-specific feature flags control which capabilities are enabled for each organization. The platform also spans AWS infrastructure, secure document exchange, quality checks, audit trails, and deployment processes that support reliable healthcare operations.',
+      'My work focuses on connecting complex healthcare workflows with the application architecture and infrastructure required to move medical records securely and reliably across organizations.',
+    ],
+    stack: ['Python · Django', 'Next.js', 'Celery', 'AWS · REST APIs', 'Tenant-aware feature flags'],
   },
   {
     number: '03',
     category: 'CLINICAL AUDIT & CLAIMS',
     title: 'Bringing clarity to complex reviews.',
     name: 'Clinical Audit & Claims Review',
-    description:
-      'I helped build a .NET Core application for clinical audit and claims review, supporting hospital and insurance audit teams. The platform brings together secure document intake, claims review workflows, and integrations across organizations. Deployed on Microsoft Azure, it supports compliance traceability through structured audit logging, reporting, and operational dashboards. My work connects healthcare review processes with the application architecture and secure integrations needed to support day-to-day audit operations.',
+    paragraphs: [
+      'I helped build a .NET Core application for clinical audit and claims review, supporting hospital and insurance audit teams through complex healthcare review workflows.',
+      'The platform brings together secure document intake, claims review workflows, healthcare integrations, and structured audit processes across organizations. Deployed on Microsoft Azure, it supports compliance traceability through structured audit logging, reporting, and operational dashboards.',
+      'My work connects healthcare review processes with the application architecture and secure integrations required to support day-to-day audit operations.',
+    ],
     stack: ['C# · .NET Core', 'Microsoft Azure', 'Healthcare integrations', 'Audit logging'],
   },
 ];
@@ -132,9 +141,9 @@ export default function AlbertPage() {
               </h2>
             </div>
             <p>
-              From nationwide healthcare workflows
+              Intelligence, then healthcare data,
               <br />
-              to grounded AI document intelligence.
+              then the operations those records support.
             </p>
           </div>
           <div className="projects">
@@ -146,7 +155,9 @@ export default function AlbertPage() {
                 </div>
                 <h3>{p.title}</h3>
                 <p className="project-name">{p.name}</p>
-                <p>{p.description}</p>
+                {p.paragraphs.map((text) => (
+                  <p key={text}>{text}</p>
+                ))}
                 <ul className="tags" aria-label="Technologies">
                   {p.stack.map((t) => (
                     <li key={t}>{t}</li>
@@ -226,8 +237,8 @@ export default function AlbertPage() {
               <div className="skill-row">
                 <h3>AI & document intelligence</h3>
                 <p>
-                  OpenAI · Claude · RAG · BM25 lexical search · Vector retrieval · Reciprocal rank fusion · pgvector ·
-                  Document ingestion · OCR · Claude Code · Cursor
+                  Python · FastAPI · RAG · BM25 · pgvector · LangGraph · OpenAI · Claude · AWS Bedrock · Reciprocal rank
+                  fusion · Document ingestion · OCR · Claude Code · Cursor
                 </p>
               </div>
               <div className="skill-row">
