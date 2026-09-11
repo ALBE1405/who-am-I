@@ -53,6 +53,7 @@ export default function AlbertPage() {
           <a href="#about">About</a>
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
+          <a href="#me">Me</a>
           <a href="#contact">
             Contact <span aria-hidden="true">↗</span>
           </a>
@@ -250,6 +251,61 @@ export default function AlbertPage() {
                   <br />
                   <span>Anna University</span>
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="me" className="about section">
+          <div className="wrap section-grid">
+            <div>
+              <p className="eyebrow">05 / A LITTLE ABOUT WHAT MAKES ME, ME</p>
+              <h2>
+                Outside of technology,
+                <br />
+                <span>the things that keep me connected.</span>
+              </h2>
+            </div>
+            <div className="about-copy">
+              <p className="large-copy">
+                Outside of technology, I find myself in the things that keep me connected to people, nature, and where I
+                come from.
+              </p>
+              <p>
+                I love photography, especially capturing nature as it really is—without trying to make it perfect. I’m
+                equally drawn to people who are beautiful not only on the outside, but in the way they think, care, and
+                live.
+              </p>
+              <p>
+                I love cricket, and I have a special love for bikes and long rides. There is something about being on a
+                bike, traveling long distances, and simply experiencing the road that gives me a different kind of
+                freedom.
+              </p>
+              <p>
+                I’m deeply connected to my mother tongue, Tamil. Tamil has helped me understand my roots, my culture,
+                and, in many ways, the world around me. English, which I learned through my father and my journey in
+                life, opened another window to the world.
+              </p>
+              <p>
+                My father taught me some of the values I carry most strongly today: be honest, speak the truth, and keep
+                fighting until the end. Winning or losing is secondary. What matters is having the courage to stand by
+                what you believe is right.
+              </p>
+              <p>My brother has been an important part of my journey, sharing many of life’s good moments with me.</p>
+              <p>
+                And there is one very special person in my life who has stood beside me through everything—someone who
+                motivates me when I need it, corrects me when I’m wrong, and somehow manages to absorb even my worst
+                moments and anger with patience. That person has helped me grow, become better, and, most importantly,
+                become more myself.
+              </p>
+              <div className="me-close">
+                <h3>What I like to keep close</h3>
+                <ul className="tags" aria-label="What I like to keep close">
+                  {['Nature', 'Photography', 'Cricket', 'Bikes', 'Long rides', 'Tamil', 'Family', 'Truth', 'Simplicity'].map(
+                    (item) => (
+                      <li key={item}>{item}</li>
+                    ),
+                  )}
+                </ul>
               </div>
             </div>
           </div>
