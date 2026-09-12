@@ -6,58 +6,61 @@ const shipped = [
     category: 'APPLIED AI',
     title: 'Turning unstructured information into grounded answers.',
     name: 'Knowledge Studio · Document Intelligence',
-    text: 'A document intelligence platform that uses RAG, BM25, vector retrieval, and Reciprocal Rank Fusion so answers come from evidence the user is allowed to see. Google Drive, uploads, folders, and websites share one ingestion path. Chat, editing, and comparison stay tied to citations.',
-    stack: ['Python / FastAPI', 'RAG · BM25 · pgvector', 'Authorization-aware retrieval'],
+    problem: 'Documents that cannot become answers unless the evidence is visible and the reader is allowed to see it.',
+    system: 'One ingestion path. Retrieval that stays inside the user’s permissions. Chat, editing, and comparison tied to citations.',
+    decisions: ['RAG', 'BM25', 'Vector search', 'RRF', 'Authorization-aware retrieval'],
   },
   {
     number: '02',
     category: 'HEALTHCARE DATA',
     title: 'Connecting medical records at scale.',
     name: 'Medical Record Retrieval',
-    text: 'A medical record retrieval platform with a Django backend and Next.js frontend. It moves requests across provider networks through APIs, portals, and file exchange, with Celery, tenant feature flags, and AWS behind the operational path.',
-    stack: ['Python · Django', 'Next.js', 'Celery', 'AWS'],
+    problem: 'Records that have to move across provider networks without losing the request, the file, or the audit trail.',
+    system: 'A Django and Next.js platform for the request lifecycle — APIs, portals, file exchange, and tenant-aware delivery on AWS.',
+    decisions: ['Request lifecycle', 'Celery', 'Tenant feature flags', 'Secure exchange'],
   },
   {
     number: '03',
     category: 'CLINICAL OPERATIONS',
     title: 'Bringing clarity to complex reviews.',
     name: 'Clinical Audit & Claims Review',
-    text: 'A .NET Core application for hospital and insurance audit teams. Document intake, claims review, healthcare integrations, and structured audit logging sit on Azure so the work stays traceable.',
-    stack: ['C# · .NET Core', 'Microsoft Azure', 'Audit logging'],
+    problem: 'Hospital and insurance audit teams working through dense review work that has to stay traceable.',
+    system: 'A .NET Core application on Azure for intake, claims review, healthcare integrations, and structured audit logging.',
+    decisions: ['.NET Core', 'Azure', 'Healthcare integrations', 'Audit logging'],
   },
 ];
 
 const pillars = [
   {
     title: 'Healthcare Platforms',
-    text: 'Medical record retrieval, claims, audit, provider integrations, and the workflows that move healthcare data between organizations.',
+    text: 'Medical record retrieval, healthcare data workflows, audit, claims, provider integrations, and the enterprise systems those workflows run on.',
   },
   {
     title: 'Cloud & Distributed Systems',
-    text: 'Secure, scalable applications across Azure and AWS — APIs, background work, tenant-aware delivery, and the infrastructure those systems need to stay reliable.',
+    text: 'Cloud-native applications, APIs, infrastructure, security, reliability, and the operational work of keeping a system dependable.',
   },
   {
     title: 'Applied AI',
-    text: 'RAG, hybrid retrieval, agents, intelligent document processing, and LLM orchestration that help people find answers they can trust.',
+    text: 'LLMs, RAG, hybrid retrieval, intelligent document processing, agents, and AI-assisted workflows that stay tied to a real problem.',
   },
   {
     title: 'AI Architecture',
-    text: 'The layer between models, tools, enterprise data, and applications — so intelligence is governed, usable, and tied to a real problem.',
+    text: 'Connecting models, enterprise data, tools, workflows, and applications into governed systems people can actually use.',
   },
 ];
 
 const experiments = [
   {
     title: 'Medical AI',
-    text: 'MRI toward structured inference, then interpretation an AI system can use. Still an experiment — not a product.',
+    text: 'Specialized models that turn medical data into structured inference. An exploration — not a product, and not a clinical claim.',
   },
   {
     title: 'Agentic Engineering',
-    text: 'Controlled multi-agent workflows for software development and knowledge work, with humans still accountable for the result.',
+    text: 'Controlled multi-agent workflows for software development and knowledge work, with a person still accountable for the result.',
   },
   {
     title: 'Intelligent Retrieval',
-    text: 'Hybrid search that combines lexical, semantic, and contextual retrieval so answers stay grounded in the right documents.',
+    text: 'Hybrid retrieval that combines lexical, semantic, and contextual signals so answers stay grounded in the right documents.',
   },
   {
     title: 'AI Infrastructure',
@@ -67,20 +70,112 @@ const experiments = [
 
 const beliefs = [
   'Build for reality, not demos.',
-  'Keep systems simple until complexity earns its place.',
   'AI should solve measurable problems, not exist because it is fashionable.',
+  'Keep systems simple until complexity earns its place.',
   'Understand the whole system, not just the code.',
-  'Stay curious. Keep learning.',
+  'Good architecture balances technology, people, cost, security, and delivery.',
+  'Stay curious.',
   'Be honest about what you know — and what you don’t.',
 ];
 
-const timeline = [
-  { era: '2009', title: 'Software engineering', detail: 'My career started here. .NET and enterprise applications — learning to ship software that other people depend on.' },
-  { era: '2015', title: 'Full-stack engineering', detail: 'Web, Java, Angular, APIs. Owning more of the path from the screen to the database.' },
-  { era: 'Cloud', title: 'Distributed systems', detail: 'Cloud migration, healthcare platforms, and the infrastructure that keeps them running.' },
-  { era: 'Healthcare', title: 'Medical data', detail: 'Retrieval, audit, automation, and the operational reality of PHI and provider networks.' },
-  { era: 'Today', title: 'AI engineering', detail: 'RAG, agents, LLMs, and medical intelligence — the next layer on top of systems I already understand.' },
+type JourneyStage = {
+  title: string;
+  lesson: string;
+  text?: string;
+  quote?: string;
+  note?: string;
+  expand?: string[];
+  using?: string[];
+  building?: string[];
+  key?: boolean;
+};
+
+const journeyStages: JourneyStage[] = [
+  {
+    title: 'Classic .NET',
+    lesson: 'Learning to build applications',
+    text: 'I started with classic .NET and the way enterprise applications were traditionally built.',
+    expand: ['Application', 'Server'],
+  },
+  {
+    title: 'On-prem → Cloud',
+    lesson: 'Learning to think about infrastructure',
+    text: 'Classic .NET applications ran alongside the infrastructure they depended on. Curiosity about servers, security, deployment, and operations led me toward cloud.',
+    quote: 'I went from thinking about an application to thinking about the system that runs the application.',
+    expand: ['Application', 'Infrastructure', 'Cloud'],
+    key: true,
+  },
+  {
+    title: 'Modern .NET',
+    lesson: 'Learning that platforms evolve',
+    text: 'As the ecosystem evolved, I moved toward modern .NET and .NET Core — APIs, services, containers, and more modular architectures.',
+    quote: 'The framework changed, but more importantly, the way I thought about building software changed.',
+    expand: ['Classic .NET', '.NET Core', 'Cloud-native'],
+    key: true,
+  },
+  {
+    title: 'Java / Spring Boot → Python',
+    lesson: 'Learning to choose the right tool for the problem',
+    text: 'I moved beyond one ecosystem. Each one taught a different way to build APIs, services, and integrations.',
+    quote: 'I learned to choose the technology based on the problem rather than forcing every problem into the technology I already knew.',
+    note: 'The language changed. The engineering principles remained.',
+  },
+  {
+    title: 'Systems & platforms',
+    lesson: 'Learning to think beyond code',
+    text: 'The work got larger: software, infrastructure, security, data, APIs, deployment, observability, people, and business workflows had to fit together.',
+    quote: 'The bigger the system became, the more I had to think beyond the code.',
+    expand: ['Systems', 'Platforms', 'Data', 'Security'],
+    key: true,
+  },
+  {
+    title: 'AI-assisted engineering',
+    lesson: 'Learning to build with AI',
+    text: 'AI changed not only what I build, but how I build. Tools such as Cursor, Codex, and Claude Code changed the development loop. Architecture, judgment, security, and responsibility still belong to the engineer.',
+    quote: 'AI accelerates the engineering loop. It does not replace it.',
+    using: ['Cursor', 'Codex', 'Claude Code'],
+  },
+  {
+    title: 'AI systems',
+    lesson: 'Learning to understand what sits behind AI',
+    text: 'There is a difference between using AI tools and understanding the systems behind them.',
+    quote: 'I am moving from simply using AI toward understanding and building the systems behind it.',
+    building: ['LLMs', 'RAG', 'Hybrid retrieval', 'Agents', 'MCP', 'Inference'],
+    expand: ['AI', 'Models', 'Retrieval', 'Agents', 'Tools', 'Inference'],
+    key: true,
+  },
+  {
+    title: 'Self-hosted models',
+    lesson: 'Learning to understand the model and inference layer',
+    text: 'Alongside hosted models, I experiment with Muse Glimmer and Qwen — running and understanding the inference layer rather than treating the model as a black box.',
+    quote: 'Sometimes the right engineering decision is a managed model. Sometimes understanding and controlling the model infrastructure matters.',
+    building: ['Qwen', 'Muse Glimmer'],
+    key: true,
+  },
+  {
+    title: 'Medical intelligence',
+    lesson: 'Exploring what comes next',
+    text: 'Specialized models as governed capabilities — a platform idea, not a clinical product.',
+  },
 ];
+
+function JourneyPath({ steps, caption }: { steps: string[]; caption?: string }) {
+  return (
+    <p className="journey-path">
+      {steps.map((step, i) => (
+        <span key={step} className="journey-path-step">
+          {i > 0 && (
+            <span className="journey-path-arrow" aria-hidden="true">
+              →
+            </span>
+          )}
+          {step}
+        </span>
+      ))}
+      {caption ? <span className="journey-path-note">{caption}</span> : null}
+    </p>
+  );
+}
 
 const askAbout = [
   { label: 'Healthcare AI', href: '#toward' },
@@ -89,9 +184,10 @@ const askAbout = [
   { label: 'Agentic systems', href: '#experiments' },
   { label: 'Cloud architecture', href: '#build' },
   { label: '.NET evolution', href: '#journey' },
-  { label: 'Building AI products', href: '#toward' },
-  { label: 'Cricket', href: '#who' },
+  { label: 'AI product design', href: '#toward' },
   { label: 'Photography', href: '#who' },
+  { label: 'Cricket', href: '#who' },
+  { label: 'Bikes', href: '#who' },
   { label: 'Tamil', href: '#who' },
 ];
 
@@ -130,7 +226,7 @@ export default function AlbertPage() {
           <div className="hero-shade" aria-hidden="true" />
           <div className="wrap portrait-content">
             <div className="portrait-copy">
-              <p className="eyebrow">HEALTHCARE ENGINEERING → CLOUD → AI</p>
+              <p className="eyebrow">HEALTHCARE × ENGINEERING × CLOUD × AI</p>
               <h1 id="intro">
                 Albert<span className="hero-surname">Arokiyasouridass</span>
               </h1>
@@ -139,9 +235,8 @@ export default function AlbertPage() {
                 usable software.
               </p>
               <p className="portrait-description">
-                My journey started with classic .NET. Over the years, I moved from building applications to understanding
-                the systems behind them — cloud, security, infrastructure, data, and delivery. Today, I build cloud
-                applications and practical AI, bringing those pieces together to solve real problems.
+                My journey started with classic .NET. Today, I build cloud applications and practical AI, bringing
+                together software, security, infrastructure, and delivery.
               </p>
               <div className="hero-actions">
                 <a className="hero-primary" href="#journey">
@@ -160,43 +255,46 @@ export default function AlbertPage() {
         </section>
 
         <section id="journey" className="about section">
-          <div className="wrap section-grid">
-            <div>
-              <p className="eyebrow">01 / MY JOURNEY</p>
-              <h2>
-                Code → Cloud →
-                <br />
-                Healthcare →
-                <br />
-                <span>AI.</span>
-              </h2>
-            </div>
-            <div className="about-copy">
-              <p className="large-copy">I started my career writing software.</p>
-              <p>
-                Over time, I became increasingly interested in what happens beyond the code — how applications interact
-                with infrastructure, data, security, users, and the real-world problems they are supposed to solve.
-              </p>
-              <p>
-                That led me from traditional .NET development into full-stack engineering, cloud platforms, and
-                eventually healthcare technology — and into taking responsibility for how an entire system is built,
-                secured, delivered, and kept running.
-              </p>
-              <p>
-                Today, I’m exploring the next layer: AI systems that can reason over domain knowledge, orchestrate
-                specialized capabilities, and help people make better decisions.
-              </p>
-            </div>
+          <div className="wrap journey-intro">
+            <p className="eyebrow">01 / MY JOURNEY</p>
+            <h2>
+              This is the evolution of how I think —
+              <br />
+              <span>not a list of jobs.</span>
+            </h2>
+            <p className="journey-thread">
+              On-prem → Cloud → Modern engineering → AI-assisted engineering → AI systems. The transitions matter more
+              than the tools.
+            </p>
           </div>
-          <ol className="wrap timeline">
-            {timeline.map((item) => (
-              <li key={item.era}>
-                <p className="timeline-era">{item.era}</p>
-                <h3>{item.title}</h3>
-                <p>{item.detail}</p>
+
+          <ol className="wrap journey-rail" aria-label="The continuous path">
+            {journeyStages.map((stage) => (
+              <li key={stage.title} className={stage.key ? 'is-key' : undefined}>
+                <h3>{stage.title}</h3>
+                <p className="journey-lesson">{stage.lesson}</p>
+                {stage.text ? <p>{stage.text}</p> : null}
+                {stage.using ? (
+                  <p className="journey-split">
+                    <span>Using AI</span> {stage.using.join(' · ')}
+                  </p>
+                ) : null}
+                {stage.building ? (
+                  <p className="journey-split">
+                    <span>Building AI</span> {stage.building.join(' · ')}
+                  </p>
+                ) : null}
+                {stage.expand ? <JourneyPath steps={stage.expand} caption={stage.note} /> : null}
+                {stage.note && !stage.expand ? <p className="journey-path-note">{stage.note}</p> : null}
+                {stage.quote ? <p className="journey-quote">{stage.quote}</p> : null}
               </li>
             ))}
           </ol>
+
+          <div className="wrap journey-close">
+            <p>The technologies changed. The problems changed. My way of thinking had to change with them.</p>
+            <p className="journey-still">And the journey is still going.</p>
+          </div>
         </section>
 
         <section id="build" className="work wrap section">
@@ -228,19 +326,25 @@ export default function AlbertPage() {
             <p>Systems that already exist — not a catalog of every technology I have touched.</p>
             <div className="projects">
               {shipped.map((p) => (
-                <article className="project" key={p.number}>
+                <article className="project case" key={p.number}>
                   <div className="project-top">
                     <span className="project-number">{p.number}</span>
                     <p className="eyebrow">{p.category}</p>
                   </div>
                   <h3>{p.title}</h3>
                   <p className="project-name">{p.name}</p>
-                  <p>{p.text}</p>
-                  <ul className="tags" aria-label="Technologies">
-                    {p.stack.map((t) => (
-                      <li key={t}>{t}</li>
-                    ))}
-                  </ul>
+                  <p>
+                    <span className="case-label">Problem</span>
+                    {p.problem}
+                  </p>
+                  <p>
+                    <span className="case-label">System</span>
+                    {p.system}
+                  </p>
+                  <p className="case-decisions">
+                    <span className="case-label">Decisions</span>
+                    {p.decisions.join(' → ')}
+                  </p>
                 </article>
               ))}
             </div>
@@ -263,37 +367,39 @@ export default function AlbertPage() {
                 governed capabilities that AI systems can use.
               </p>
               <p>
-                MRI, EKG/ECG, EEG, and the models that will follow should not sit in separate products. They should be
-                tools — callable, auditable, and available to an orchestration layer that already understands the
-                application, the data, and the person asking.
+                This is a technology vision — an exploration of architecture, not a clinical product and not a medical
+                claim. Specialized models should become tools: callable, auditable, and available to a governed layer
+                that already understands the application, the data, and the person asking.
               </p>
             </div>
           </div>
-          <figure className="wrap intel-figure">
+          <figure className="wrap intel-figure is-arch">
             <figcaption className="visually-hidden">
-              AI or a small language model sits above orchestration, which calls specialized MRI, EKG/ECG, and EEG models.
-              Those models surface through MCP tools into applications and agents.
+              Medical data feeds specialized models for MRI, EKG/ECG, EEG, and other modalities. An AI or small language
+              model layer reaches those models through MCP and other governed tools, then into applications and agents.
             </figcaption>
-            <div className="intel-layer">AI / SLM</div>
+            <div className="intel-layer">Medical data</div>
             <div className="intel-rule" aria-hidden="true" />
-            <div className="intel-layer">Orchestration</div>
+            <div className="intel-layer">Specialized models</div>
             <div className="intel-rule" aria-hidden="true" />
             <div className="intel-models">
               <div>
                 <strong>MRI</strong>
-                <span>Model</span>
               </div>
               <div>
                 <strong>EKG/ECG</strong>
-                <span>Model</span>
               </div>
               <div>
                 <strong>EEG</strong>
-                <span>Model</span>
+              </div>
+              <div>
+                <strong>Other</strong>
               </div>
             </div>
             <div className="intel-rule" aria-hidden="true" />
-            <div className="intel-layer">MCP / Tools</div>
+            <div className="intel-layer">AI / SLM layer</div>
+            <div className="intel-rule" aria-hidden="true" />
+            <div className="intel-layer">MCP / Governed tools</div>
             <div className="intel-rule" aria-hidden="true" />
             <div className="intel-layer">Applications / Agents</div>
           </figure>
@@ -332,7 +438,7 @@ export default function AlbertPage() {
               <h2>
                 Things I
                 <br />
-                <span>will not trade away.</span>
+                <span>believe.</span>
               </h2>
             </div>
             <ol className="beliefs">
@@ -396,17 +502,16 @@ export default function AlbertPage() {
                 </h2>
               </div>
               <p>
-                The person
+                Engineer
                 <br />
-                behind the engineer.
+                → person.
               </p>
             </div>
             <div className="beyond-grid">
               <article>
-                <h3>Nature</h3>
+                <h3>Nature & photography</h3>
                 <p>
-                  I love photographing nature — especially moments that feel real rather than staged. I am equally drawn
-                  to people who are beautiful not only on the outside, but in the way they think, care, and live.
+                  I love photographing nature and people — especially moments that feel real rather than staged.
                 </p>
               </article>
               <article>
@@ -418,7 +523,7 @@ export default function AlbertPage() {
               </article>
               <article>
                 <h3>Bikes</h3>
-                <p>Long rides, open roads, and the freedom to simply keep moving. The road gives me a different kind of freedom.</p>
+                <p>Long rides, open roads, and the freedom to simply keep moving.</p>
               </article>
             </div>
             <div className="who-essays">
@@ -440,8 +545,12 @@ export default function AlbertPage() {
                 that opened another window for me. Through English, I discovered technology, books, engineering, new
                 ideas, and a world far beyond the place where I started.
               </p>
-              <p className="who-quote">So, in a way, Tamil gave me my roots, while English gave me wings.</p>
-              <p>I carry both with me.</p>
+              <p className="who-quote display-line">Tamil gave me my roots, while English gave me wings.</p>
+              <p className="roots-wings">
+                <span>Tamil → roots → thinking → understanding</span>
+                <span>English → learning → technology → the wider world</span>
+              </p>
+              <p>I carry both with me. Roots + wings.</p>
               <p>
                 And I will always have gratitude for the land that has given me opportunities, experiences, friendships,
                 and lessons along the way. Wherever life takes me, I want to remain true to where I come from, respect
@@ -482,20 +591,20 @@ export default function AlbertPage() {
                 The people closest to me have shaped far more than my career. They have shaped how I think, how I treat
                 people, how I handle failure, and what I choose to stand for.
               </p>
-              <p>That is a part of who I am that no résumé can really capture.</p>
+              <p className="who-last">That is a part of who I am that no résumé can really capture.</p>
             </div>
             </div>
           </div>
         </section>
 
-        <section className="ask wrap section">
+        <section id="ask" className="ask wrap section">
           <div className="section-heading">
             <div>
               <p className="eyebrow">08 / ASK ME ABOUT</p>
               <h2>
-                If we sit down,
+                Ask me
                 <br />
-                <span>start here.</span>
+                <span>about…</span>
               </h2>
             </div>
           </div>
@@ -517,8 +626,8 @@ export default function AlbertPage() {
               <span>of healthcare, cloud & AI.</span>
             </h2>
             <p>
-              I’m interested in partnering with healthcare and AI teams to take useful systems from an idea to something
-              people can rely on.
+              I’m interested in working with teams who need useful systems taken from an idea to something people can
+              rely on.
             </p>
             <div className="contact-links">
               <a href="mailto:albert.arokiyasouridass1985@gmail.com">
