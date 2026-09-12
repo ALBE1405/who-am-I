@@ -1,40 +1,98 @@
-const projects = [
+import './albert.css';
+
+const shipped = [
   {
     number: '01',
-    category: 'APPLIED AI · INDEPENDENT WORK',
+    category: 'APPLIED AI',
     title: 'Turning unstructured information into grounded answers.',
     name: 'Knowledge Studio · Document Intelligence',
-    paragraphs: [
-      'I built a document intelligence platform using RAG, BM25 lexical search, vector retrieval, and Reciprocal Rank Fusion (RRF) to turn unstructured documents into searchable, evidence-grounded knowledge.',
-      'Tenant and workspace authorization are enforced before retrieval, ensuring that responses are generated only from content the user is permitted to access. Google Drive connects through OAuth, while uploaded files, local folders, and website content flow through a unified ingestion pipeline.',
-      'The platform progressively indexes text before embeddings are added, with optional OCR and table enrichment when needed. Chat, editing, and comparison experiences use retrieved evidence and citations, with configurable reranking to improve retrieval quality.',
-    ],
-    stack: ['Python / FastAPI', 'RAG · BM25 · pgvector', 'Google Drive OAuth', 'Authorization-aware retrieval'],
+    text: 'A document intelligence platform that uses RAG, BM25, vector retrieval, and Reciprocal Rank Fusion so answers come from evidence the user is allowed to see. Google Drive, uploads, folders, and websites share one ingestion path. Chat, editing, and comparison stay tied to citations.',
+    stack: ['Python / FastAPI', 'RAG · BM25 · pgvector', 'Authorization-aware retrieval'],
   },
   {
     number: '02',
-    category: 'HEALTHCARE DATA EXCHANGE',
+    category: 'HEALTHCARE DATA',
     title: 'Connecting medical records at scale.',
     name: 'Medical Record Retrieval',
-    paragraphs: [
-      'I build and maintain a medical record retrieval platform with a Python/Django backend and Next.js frontend. The platform supports secure request lifecycle management across healthcare provider networks through REST APIs, portal workflows, and file-based integrations.',
-      'Celery handles background processing, while tenant-specific feature flags control which capabilities are enabled for each organization. The platform also spans AWS infrastructure, secure document exchange, quality checks, audit trails, and deployment processes that support reliable healthcare operations.',
-      'My work focuses on connecting complex healthcare workflows with the application architecture and infrastructure required to move medical records securely and reliably across organizations.',
-    ],
-    stack: ['Python · Django', 'Next.js', 'Celery', 'AWS · REST APIs', 'Tenant-aware feature flags'],
+    text: 'A medical record retrieval platform with a Django backend and Next.js frontend. It moves requests across provider networks through APIs, portals, and file exchange, with Celery, tenant feature flags, and AWS behind the operational path.',
+    stack: ['Python · Django', 'Next.js', 'Celery', 'AWS'],
   },
   {
     number: '03',
-    category: 'CLINICAL AUDIT & CLAIMS',
+    category: 'CLINICAL OPERATIONS',
     title: 'Bringing clarity to complex reviews.',
     name: 'Clinical Audit & Claims Review',
-    paragraphs: [
-      'I helped build a .NET Core application for clinical audit and claims review, supporting hospital and insurance audit teams through complex healthcare review workflows.',
-      'The platform brings together secure document intake, claims review workflows, healthcare integrations, and structured audit processes across organizations. Deployed on Microsoft Azure, it supports compliance traceability through structured audit logging, reporting, and operational dashboards.',
-      'My work connects healthcare review processes with the application architecture and secure integrations required to support day-to-day audit operations.',
-    ],
-    stack: ['C# · .NET Core', 'Microsoft Azure', 'Healthcare integrations', 'Audit logging'],
+    text: 'A .NET Core application for hospital and insurance audit teams. Document intake, claims review, healthcare integrations, and structured audit logging sit on Azure so the work stays traceable.',
+    stack: ['C# · .NET Core', 'Microsoft Azure', 'Audit logging'],
   },
+];
+
+const pillars = [
+  {
+    title: 'Healthcare Platforms',
+    text: 'Medical record retrieval, claims, audit, provider integrations, and the workflows that move healthcare data between organizations.',
+  },
+  {
+    title: 'Cloud & Distributed Systems',
+    text: 'Secure, scalable applications across Azure and AWS — APIs, background work, tenant-aware delivery, and the infrastructure those systems need to stay reliable.',
+  },
+  {
+    title: 'Applied AI',
+    text: 'RAG, hybrid retrieval, agents, intelligent document processing, and LLM orchestration that help people find answers they can trust.',
+  },
+  {
+    title: 'AI Architecture',
+    text: 'The layer between models, tools, enterprise data, and applications — so intelligence is governed, usable, and tied to a real problem.',
+  },
+];
+
+const experiments = [
+  {
+    title: 'Medical AI',
+    text: 'MRI toward structured inference, then interpretation an AI system can use. Still an experiment — not a product.',
+  },
+  {
+    title: 'Agentic Engineering',
+    text: 'Controlled multi-agent workflows for software development and knowledge work, with humans still accountable for the result.',
+  },
+  {
+    title: 'Intelligent Retrieval',
+    text: 'Hybrid search that combines lexical, semantic, and contextual retrieval so answers stay grounded in the right documents.',
+  },
+  {
+    title: 'AI Infrastructure',
+    text: 'LLMs, embeddings, vector databases, orchestration, and governed tool access — the unglamorous layer that makes the rest possible.',
+  },
+];
+
+const beliefs = [
+  'Build for reality, not demos.',
+  'Keep systems simple until complexity earns its place.',
+  'AI should solve measurable problems, not exist because it is fashionable.',
+  'Understand the whole system, not just the code.',
+  'Stay curious. Keep learning.',
+  'Be honest about what you know — and what you don’t.',
+];
+
+const timeline = [
+  { era: '2000s', title: 'Software engineering', detail: '.NET and enterprise applications. Learning to ship software that other people depend on.' },
+  { era: '2010s', title: 'Full-stack engineering', detail: 'Web, Java, Angular, APIs. Owning more of the path from the screen to the database.' },
+  { era: 'Cloud', title: 'Distributed systems', detail: 'Cloud migration, healthcare platforms, and the infrastructure that keeps them running.' },
+  { era: 'Healthcare', title: 'Medical data', detail: 'Retrieval, audit, automation, and the operational reality of PHI and provider networks.' },
+  { era: 'Today', title: 'AI engineering', detail: 'RAG, agents, LLMs, and medical intelligence — the next layer on top of systems I already understand.' },
+];
+
+const askAbout = [
+  { label: 'Healthcare AI', href: '#toward' },
+  { label: 'Medical record retrieval', href: '#build' },
+  { label: 'RAG architecture', href: '#experiments' },
+  { label: 'Agentic systems', href: '#experiments' },
+  { label: 'Cloud architecture', href: '#build' },
+  { label: '.NET evolution', href: '#journey' },
+  { label: 'Building AI products', href: '#toward' },
+  { label: 'Cricket', href: '#who' },
+  { label: 'Photography', href: '#who' },
+  { label: 'Tamil', href: '#who' },
 ];
 
 const heroPhoto = `${import.meta.env.BASE_URL}albert-hero.png`;
@@ -50,17 +108,17 @@ export default function AlbertPage() {
           Albert<span className="brand-dot">.</span>
         </a>
         <nav aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="#experience">Experience</a>
-          <a href="#me">Me</a>
+          <a href="#journey">Journey</a>
+          <a href="#build">Build</a>
+          <a href="#toward">Toward</a>
+          <a href="#who">Who I am</a>
           <a href="#contact">
-            Contact <span aria-hidden="true">↗</span>
+            Connect <span aria-hidden="true">↗</span>
           </a>
         </nav>
       </header>
       <main id="main">
-        <section className="portrait-hero" aria-labelledby="intro">
+        <section className="portrait-hero albert-hero" aria-labelledby="intro">
           <img
             className="hero-photo"
             src={heroPhoto}
@@ -72,175 +130,243 @@ export default function AlbertPage() {
           <div className="hero-shade" aria-hidden="true" />
           <div className="wrap portrait-content">
             <div className="portrait-copy">
-              <p className="eyebrow">SOFTWARE ENGINEERING · CLOUD · APPLIED AI</p>
+              <p className="eyebrow">HEALTHCARE ENGINEERING → CLOUD → AI</p>
               <h1 id="intro">
-                Hi, I’m Albert.<span className="hero-surname">Arokiyasouridass</span>
+                Albert<span className="hero-surname">Arokiyasouridass</span>
               </h1>
               <p className="portrait-lead">
-                From application code
-                <br />
-                to the whole system.
+                I build systems that turn complex healthcare data, workflows, and domain knowledge into intelligent,
+                usable software.
               </p>
               <p className="portrait-description">
-                My journey started with classic .NET. Today, I build cloud applications and practical AI, bringing
-                together software, security, infrastructure, and delivery.
+                17+ years building software — from classic .NET applications to cloud-native platforms and applied AI.
               </p>
               <div className="hero-actions">
-                <a className="hero-primary" href="#work">
-                  Explore my work <span aria-hidden="true">↗</span>
+                <a className="hero-primary" href="#journey">
+                  Explore my journey <span aria-hidden="true">↓</span>
                 </a>
-                <a className="hero-secondary" href="#about">
-                  My journey <span aria-hidden="true">↓</span>
+                <a className="hero-secondary" href="#toward">
+                  What I’m building
+                </a>
+                <a className="hero-secondary" href="#contact">
+                  Connect with me
                 </a>
               </div>
               <p className="portrait-location">Based in Alpharetta, Georgia</p>
             </div>
           </div>
         </section>
-        <section id="about" className="about section">
+
+        <section id="journey" className="about section">
           <div className="wrap section-grid">
             <div>
               <p className="eyebrow">01 / MY JOURNEY</p>
               <h2>
-                From classic .NET
+                Code → Cloud →
                 <br />
-                to cloud platforms
+                Healthcare →
                 <br />
-                <span>and practical AI.</span>
+                <span>AI.</span>
               </h2>
             </div>
             <div className="about-copy">
-              <p className="large-copy">I started my career building applications with classic .NET.</p>
+              <p className="large-copy">I started my career writing software.</p>
               <p>
-                As I grew, I joined teams modernizing those applications on newer .NET frameworks and moving on-premises
-                systems to the cloud. Those experiences sparked my interest in understanding the whole application—from
-                the code people use to the infrastructure that keeps it running.
+                Over time, I became increasingly interested in what happens beyond the code — how applications interact
+                with infrastructure, data, security, users, and the real-world problems they are supposed to solve.
               </p>
               <p>
-                Along the way, I built a complete role-based access control system, developed new Java web applications,
-                and worked extensively with Angular. I also built full-stack applications with Angular and Spring Boot,
-                taking ownership of cloud infrastructure, deployment, and CI/CD pipelines using Jenkins. Later, my work
-                expanded into Helm-based deployments and infrastructure provisioning with Terraform.
+                That led me from traditional .NET development into full-stack engineering, cloud platforms, and
+                eventually healthcare technology — and into taking responsibility for how an entire system is built,
+                secured, delivered, and kept running.
               </p>
               <p>
-                More recently, I’ve worked with Python, Django, and Next.js while managing security, cloud servers,
-                deployments, and ongoing operations. My journey has grown from writing application code to taking
-                responsibility for how an entire system is built, secured, delivered, and maintained.
+                Today, I’m exploring the next layer: AI systems that can reason over domain knowledge, orchestrate
+                specialized capabilities, and help people make better decisions.
               </p>
-              <p>Today, I bring that hands-on experience into building AI and document intelligence systems.</p>
             </div>
           </div>
+          <ol className="wrap timeline">
+            {timeline.map((item) => (
+              <li key={item.era}>
+                <p className="timeline-era">{item.era}</p>
+                <h3>{item.title}</h3>
+                <p>{item.detail}</p>
+              </li>
+            ))}
+          </ol>
         </section>
-        <section id="work" className="work wrap section">
+
+        <section id="build" className="work wrap section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">02 / SELECTED WORK</p>
+              <p className="eyebrow">02 / WHAT I BUILD</p>
               <h2>
-                Complex challenges.
+                Healthcare ×
                 <br />
-                <span>Practical solutions.</span>
+                <span>Engineering × AI.</span>
               </h2>
             </div>
             <p>
-              Intelligence, then healthcare data,
+              Four places the work
               <br />
-              then the operations those records support.
+              actually lives.
             </p>
           </div>
-          <div className="projects">
-            {projects.map((p) => (
-              <article className="project" key={p.number}>
-                <div className="project-top">
-                  <span className="project-number">{p.number}</span>
-                  <p className="eyebrow">{p.category}</p>
-                </div>
-                <h3>{p.title}</h3>
-                <p className="project-name">{p.name}</p>
-                {p.paragraphs.map((text) => (
-                  <p key={text}>{text}</p>
-                ))}
-                <ul className="tags" aria-label="Technologies">
-                  {p.stack.map((t) => (
-                    <li key={t}>{t}</li>
-                  ))}
-                </ul>
+          <div className="pillars">
+            {pillars.map((item) => (
+              <article className="pillar" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+          <div className="in-practice">
+            <h3>In practice</h3>
+            <p>Systems that already exist — not a catalog of every technology I have touched.</p>
+            <div className="projects">
+              {shipped.map((p) => (
+                <article className="project" key={p.number}>
+                  <div className="project-top">
+                    <span className="project-number">{p.number}</span>
+                    <p className="eyebrow">{p.category}</p>
+                  </div>
+                  <h3>{p.title}</h3>
+                  <p className="project-name">{p.name}</p>
+                  <p>{p.text}</p>
+                  <ul className="tags" aria-label="Technologies">
+                    {p.stack.map((t) => (
+                      <li key={t}>{t}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="toward" className="vision section">
+          <div className="wrap section-grid">
+            <div>
+              <p className="eyebrow">03 / WHAT I’M BUILDING TOWARD</p>
+              <h2>
+                Medical intelligence
+                <br />
+                <span>as a tool.</span>
+              </h2>
+            </div>
+            <div className="about-copy">
+              <p className="large-copy">
+                Instead of building isolated medical models, I want to build a platform where specialized models become
+                governed capabilities that AI systems can use.
+              </p>
+              <p>
+                MRI, ECG, EEG, and the models that will follow should not sit in separate products. They should be
+                tools — callable, auditable, and available to an orchestration layer that already understands the
+                application, the data, and the person asking.
+              </p>
+            </div>
+          </div>
+          <figure className="wrap intel-figure">
+            <figcaption className="visually-hidden">
+              AI or a small language model sits above orchestration, which calls specialized MRI, ECG, and EEG models.
+              Those models surface through MCP tools into applications and agents.
+            </figcaption>
+            <div className="intel-layer">AI / SLM</div>
+            <div className="intel-rule" aria-hidden="true" />
+            <div className="intel-layer">Orchestration</div>
+            <div className="intel-rule" aria-hidden="true" />
+            <div className="intel-models">
+              <div>
+                <strong>MRI</strong>
+                <span>Model</span>
+              </div>
+              <div>
+                <strong>ECG</strong>
+                <span>Model</span>
+              </div>
+              <div>
+                <strong>EEG</strong>
+                <span>Model</span>
+              </div>
+            </div>
+            <div className="intel-rule" aria-hidden="true" />
+            <div className="intel-layer">MCP / Tools</div>
+            <div className="intel-rule" aria-hidden="true" />
+            <div className="intel-layer">Applications / Agents</div>
+          </figure>
+        </section>
+
+        <section id="experiments" className="experiments wrap section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">04 / CURRENT EXPERIMENTS</p>
+              <h2>
+                What I’m
+                <br />
+                <span>trying next.</span>
+              </h2>
+            </div>
+            <p>
+              These are experiments.
+              <br />
+              I will say so.
+            </p>
+          </div>
+          <div className="experiment-grid">
+            {experiments.map((item) => (
+              <article className="experiment" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </article>
             ))}
           </div>
         </section>
-        <section id="experience" className="experience section">
+
+        <section id="believe" className="believe section">
           <div className="wrap section-grid">
             <div>
-              <p className="eyebrow">03 / EXPERIENCE</p>
+              <p className="eyebrow">05 / WHAT I BELIEVE</p>
               <h2>
-                A foundation built
+                Things I
                 <br />
-                <span>through delivery.</span>
+                <span>will not trade away.</span>
               </h2>
             </div>
-            <div>
-              <article className="job">
-                <div className="job-meta">
-                  <span>2012 — PRESENT</span>
-                  <span>Alpharetta / Remote</span>
-                </div>
-                <h3>Relevantz Technology Services</h3>
-                <p className="role">Solution Engineer · Healthcare Platforms</p>
-                <p>
-                  Customer-embedded engineering for a leading healthcare data connectivity company. I bridge operational
-                  needs and technical delivery across provider, EHR, and national pharmacy ecosystems.
-                </p>
-                <p>
-                  My work includes secure integrations, medical record platforms, cloud architecture, and guiding teams
-                  through implementation and production releases in HIPAA and PHI contexts.
-                </p>
-              </article>
-              <article className="job">
-                <div className="job-meta">
-                  <span>2009 — 2012</span>
-                  <span>Chennai, India</span>
-                </div>
-                <h3>OKS Prepress Services</h3>
-                <p className="role">Software Engineer</p>
-                <p>
-                  Progressed from trainee to software engineer, building and supporting solutions with C#, ASP.NET,
-                  ADO.NET, and SQL—the foundation for my work in enterprise healthcare engineering.
-                </p>
-              </article>
-            </div>
+            <ol className="beliefs">
+              {beliefs.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ol>
           </div>
         </section>
+
         <section className="skills wrap section">
           <div className="section-grid">
             <div>
-              <p className="eyebrow">04 / TOOLKIT & EDUCATION</p>
+              <p className="eyebrow">06 / THE TOOLS</p>
               <h2>
-                The tools behind
+                Enough to start
                 <br />
-                <span>the work.</span>
+                <span>a conversation.</span>
               </h2>
             </div>
             <div>
               <div className="skill-row">
                 <h3>Engineering</h3>
-                <p>
-                  C# · Java · Python · TypeScript · JavaScript · .NET / ASP.NET Core · Spring Boot · Django · REST APIs ·
-                  React · Angular · Next.js
-                </p>
+                <p>.NET · C# · Python · Java · React · Next.js</p>
               </div>
               <div className="skill-row">
-                <h3>Cloud & delivery</h3>
-                <p>
-                  Microsoft Azure · AWS · Azure DevOps · Jenkins · Helm · Terraform · CI/CD · Role-based access control
-                  · Monitoring · Structured logging
-                </p>
+                <h3>Cloud</h3>
+                <p>AWS · Azure · Docker · Terraform</p>
               </div>
               <div className="skill-row">
-                <h3>AI & document intelligence</h3>
-                <p>
-                  Python · FastAPI · RAG · BM25 · pgvector · LangGraph · OpenAI · Claude · AWS Bedrock · Reciprocal rank
-                  fusion · Document ingestion · OCR · Claude Code · Cursor
-                </p>
+                <h3>AI</h3>
+                <p>LLMs · RAG · Hybrid retrieval · Agents · LangGraph · Vector search</p>
+              </div>
+              <div className="skill-row">
+                <h3>Data</h3>
+                <p>PostgreSQL · pgvector · APIs · Healthcare data</p>
               </div>
               <div className="skill-row">
                 <h3>Education</h3>
@@ -255,72 +381,103 @@ export default function AlbertPage() {
             </div>
           </div>
         </section>
-        <section id="me" className="about section">
-          <div className="wrap section-grid">
-            <div>
-              <p className="eyebrow">05 / A LITTLE ABOUT WHAT MAKES ME, ME</p>
-              <h2>
-                Outside of technology,
+
+        <section id="who" className="who section">
+          <div className="wrap">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">07 / WHO AM I?</p>
+                <h2>
+                  Beyond
+                  <br />
+                  <span>the code.</span>
+                </h2>
+              </div>
+              <p>
+                The person
                 <br />
-                <span>the things that keep me connected.</span>
-              </h2>
+                behind the engineer.
+              </p>
             </div>
-            <div className="about-copy">
-              <p className="large-copy">
-                Outside of technology, I find myself in the things that keep me connected to people, nature, and where I
-                come from.
+            <div className="beyond-grid">
+              <article>
+                <h3>Nature</h3>
+                <p>
+                  I love photographing nature — especially moments that feel real rather than staged. I am equally drawn
+                  to people who are beautiful not only on the outside, but in the way they think, care, and live.
+                </p>
+              </article>
+              <article>
+                <h3>Cricket</h3>
+                <p>
+                  Cricket has always been more than a sport to me. Strategy, patience, pressure, and knowing when to
+                  attack.
+                </p>
+              </article>
+              <article>
+                <h3>Bikes</h3>
+                <p>Long rides, open roads, and the freedom to simply keep moving. The road gives me a different kind of freedom.</p>
+              </article>
+              <article>
+                <h3>Tamil</h3>
+                <p>
+                  Tamil is my mother tongue — the language that helped me understand my roots, my culture, and, in many
+                  ways, the world around me. English, which I learned through my father and my journey in life, opened
+                  another window.
+                </p>
+              </article>
+            </div>
+            <div className="who-values">
+              <h3>Family & values</h3>
+              <p className="who-quote">
+                My father taught me something simple: be honest, speak the truth, and keep fighting until the end —
+                whether you win or lose.
               </p>
               <p>
-                I love photography, especially capturing nature as it really is—without trying to make it perfect. I’m
-                equally drawn to people who are beautiful not only on the outside, but in the way they think, care, and
-                live.
+                Winning or losing is secondary. What matters is having the courage to stand by what you believe is
+                right. My brother has been an important part of my journey, sharing many of life’s good moments with me.
               </p>
               <p>
-                I love cricket, and I have a special love for bikes and long rides. There is something about being on a
-                bike, traveling long distances, and simply experiencing the road that gives me a different kind of
-                freedom.
-              </p>
-              <p>
-                I’m deeply connected to my mother tongue, Tamil. Tamil has helped me understand my roots, my culture,
-                and, in many ways, the world around me. English, which I learned through my father and my journey in
-                life, opened another window to the world.
-              </p>
-              <p>
-                My father taught me some of the values I carry most strongly today: be honest, speak the truth, and keep
-                fighting until the end. Winning or losing is secondary. What matters is having the courage to stand by
-                what you believe is right.
-              </p>
-              <p>My brother has been an important part of my journey, sharing many of life’s good moments with me.</p>
-              <p>
-                And there is one very special person in my life who has stood beside me through everything—someone who
+                And there is one very special person in my life who has stood beside me through everything — someone who
                 motivates me when I need it, corrects me when I’m wrong, and somehow manages to absorb even my worst
                 moments and anger with patience. That person has helped me grow, become better, and, most importantly,
                 become more myself.
               </p>
-              <div className="me-close">
-                <h3>What I like to keep close</h3>
-                <ul className="tags" aria-label="What I like to keep close">
-                  {['Nature', 'Photography', 'Cricket', 'Bikes', 'Long rides', 'Tamil', 'Family', 'Truth', 'Simplicity'].map(
-                    (item) => (
-                      <li key={item}>{item}</li>
-                    ),
-                  )}
-                </ul>
-              </div>
             </div>
           </div>
         </section>
+
+        <section className="ask wrap section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">08 / ASK ME ABOUT</p>
+              <h2>
+                If we sit down,
+                <br />
+                <span>start here.</span>
+              </h2>
+            </div>
+          </div>
+          <ul className="ask-list" aria-label="Topics to ask Albert about">
+            {askAbout.map((item) => (
+              <li key={item.label}>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section id="contact" className="contact">
           <div className="wrap">
             <p className="eyebrow">LET’S CONNECT</p>
             <h2>
-              Building what’s next
+              Building at the intersection
               <br />
-              <span>in healthcare AI.</span>
+              <span>of healthcare, cloud & AI.</span>
             </h2>
             <p>
-              I’m interested in partnering with healthcare AI teams to run customer pilots and take products from proof
-              of concept to reliable production.
+              I’m interested in partnering with healthcare and AI teams to take useful systems from an idea to something
+              people can rely on.
             </p>
             <div className="contact-links">
               <a href="mailto:albert.arokiyasouridass1985@gmail.com">
@@ -329,13 +486,16 @@ export default function AlbertPage() {
               <a href="https://www.linkedin.com/in/albert-arokiya-souridass-ece" target="_blank" rel="noopener noreferrer">
                 LinkedIn <span aria-hidden="true">↗</span>
               </a>
+              <a href="https://github.com/ALBE1405" target="_blank" rel="noopener noreferrer">
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
         </section>
       </main>
       <footer className="wrap">
         <span>Albert Arokiyasouridass</span>
-        <span>Healthcare engineering. Thoughtful AI.</span>
+        <span>Healthcare × Engineering × AI</span>
         <a href="#">Back to top ↑</a>
       </footer>
     </>
