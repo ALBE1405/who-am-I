@@ -75,8 +75,8 @@ const beliefs = [
 ];
 
 const timeline = [
-  { era: '2000s', title: 'Software engineering', detail: '.NET and enterprise applications. Learning to ship software that other people depend on.' },
-  { era: '2010s', title: 'Full-stack engineering', detail: 'Web, Java, Angular, APIs. Owning more of the path from the screen to the database.' },
+  { era: '2009', title: 'Software engineering', detail: 'My career started here. .NET and enterprise applications — learning to ship software that other people depend on.' },
+  { era: '2015', title: 'Full-stack engineering', detail: 'Web, Java, Angular, APIs. Owning more of the path from the screen to the database.' },
   { era: 'Cloud', title: 'Distributed systems', detail: 'Cloud migration, healthcare platforms, and the infrastructure that keeps them running.' },
   { era: 'Healthcare', title: 'Medical data', detail: 'Retrieval, audit, automation, and the operational reality of PHI and provider networks.' },
   { era: 'Today', title: 'AI engineering', detail: 'RAG, agents, LLMs, and medical intelligence — the next layer on top of systems I already understand.' },
@@ -118,7 +118,7 @@ export default function AlbertPage() {
         </nav>
       </header>
       <main id="main">
-        <section className="portrait-hero albert-hero" aria-labelledby="intro">
+        <section className="portrait-hero" aria-labelledby="intro">
           <img
             className="hero-photo"
             src={heroPhoto}
@@ -139,7 +139,9 @@ export default function AlbertPage() {
                 usable software.
               </p>
               <p className="portrait-description">
-                17+ years building software — from classic .NET applications to cloud-native platforms and applied AI.
+                My journey started with classic .NET. Over the years, I moved from building applications to understanding
+                the systems behind them — cloud, security, infrastructure, data, and delivery. Today, I build cloud
+                applications and practical AI, bringing those pieces together to solve real problems.
               </p>
               <div className="hero-actions">
                 <a className="hero-primary" href="#journey">
@@ -261,7 +263,7 @@ export default function AlbertPage() {
                 governed capabilities that AI systems can use.
               </p>
               <p>
-                MRI, ECG, EEG, and the models that will follow should not sit in separate products. They should be
+                MRI, EKG/ECG, EEG, and the models that will follow should not sit in separate products. They should be
                 tools — callable, auditable, and available to an orchestration layer that already understands the
                 application, the data, and the person asking.
               </p>
@@ -269,7 +271,7 @@ export default function AlbertPage() {
           </div>
           <figure className="wrap intel-figure">
             <figcaption className="visually-hidden">
-              AI or a small language model sits above orchestration, which calls specialized MRI, ECG, and EEG models.
+              AI or a small language model sits above orchestration, which calls specialized MRI, EKG/ECG, and EEG models.
               Those models surface through MCP tools into applications and agents.
             </figcaption>
             <div className="intel-layer">AI / SLM</div>
@@ -282,7 +284,7 @@ export default function AlbertPage() {
                 <span>Model</span>
               </div>
               <div>
-                <strong>ECG</strong>
+                <strong>EKG/ECG</strong>
                 <span>Model</span>
               </div>
               <div>
@@ -418,31 +420,70 @@ export default function AlbertPage() {
                 <h3>Bikes</h3>
                 <p>Long rides, open roads, and the freedom to simply keep moving. The road gives me a different kind of freedom.</p>
               </article>
-              <article>
-                <h3>Tamil</h3>
-                <p>
-                  Tamil is my mother tongue — the language that helped me understand my roots, my culture, and, in many
-                  ways, the world around me. English, which I learned through my father and my journey in life, opened
-                  another window.
-                </p>
-              </article>
+            </div>
+            <div className="who-essays">
+            <div className="who-values">
+              <h3>Two languages, two windows</h3>
+              <p>
+                Tamil is my mother tongue. It is the language through which I first learned to understand the world — my
+                roots, my culture, relationships, emotions, and the meaning behind words.
+              </p>
+              <p>
+                As I grew, I began to realize that language is more than a way of communicating. It shapes how we think.
+                Tamil gave me a foundation to question, connect ideas, understand meaning, and look at things from
+                different perspectives. Even today, when I learn something new in technology, I often find myself trying
+                to understand the idea in the simplest terms first — something I believe was shaped by the language I
+                grew up with.
+              </p>
+              <p>
+                English came into my life through my father and through my journey. In many ways, it became the language
+                that opened another window for me. Through English, I discovered technology, books, engineering, new
+                ideas, and a world far beyond the place where I started.
+              </p>
+              <p className="who-quote">So, in a way, Tamil gave me my roots, while English gave me wings.</p>
+              <p>I carry both with me.</p>
+              <p>
+                And I will always have gratitude for the land that has given me opportunities, experiences, friendships,
+                and lessons along the way. Wherever life takes me, I want to remain true to where I come from, respect
+                the places and people that have shaped me, and never forget the journey that brought me here.
+              </p>
+              <p>
+                These two languages are not simply part of my identity. They are part of how I think, learn, build, and
+                see the world.
+              </p>
             </div>
             <div className="who-values">
-              <h3>Family & values</h3>
+              <h3>The people who shaped me</h3>
               <p className="who-quote">
                 My father taught me something simple: be honest, speak the truth, and keep fighting until the end —
                 whether you win or lose.
               </p>
               <p>
                 Winning or losing is secondary. What matters is having the courage to stand by what you believe is
-                right. My brother has been an important part of my journey, sharing many of life’s good moments with me.
+                right.
               </p>
               <p>
-                And there is one very special person in my life who has stood beside me through everything — someone who
-                motivates me when I need it, corrects me when I’m wrong, and somehow manages to absorb even my worst
-                moments and anger with patience. That person has helped me grow, become better, and, most importantly,
-                become more myself.
+                My brother has been an important part of my journey too, sharing many of life’s good moments with me.
+                Some relationships don’t need many words; they become part of the story simply by being there through
+                the years.
               </p>
+              <p>
+                And there is one very special person in my life who has stood beside me through everything — my wife.
+              </p>
+              <p>
+                She motivates me when I need it, corrects me when I’m wrong, and somehow manages to absorb even my worst
+                moments and anger with patience. She has been there through the difficult days, the uncertain moments,
+                the changes, and the growth.
+              </p>
+              <p>
+                She has helped me become better, but more importantly, she has helped me become more myself.
+              </p>
+              <p>
+                The people closest to me have shaped far more than my career. They have shaped how I think, how I treat
+                people, how I handle failure, and what I choose to stand for.
+              </p>
+              <p>That is a part of who I am that no résumé can really capture.</p>
+            </div>
             </div>
           </div>
         </section>

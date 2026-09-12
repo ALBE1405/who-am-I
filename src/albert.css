@@ -1,10 +1,6 @@
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-.portrait-hero.albert-hero .hero-photo{object-position:74% 12%;transform:scale(.88);transform-origin:78% 18%}
 .portrait-hero.albert-hero .portrait-lead{font-size:clamp(1.2rem,1.7vw,1.55rem);max-width:34rem;line-height:1.35}
-@media(max-width:600px){
-  .portrait-hero.albert-hero .hero-photo{transform:none;object-position:80% 16%}
-}
 
 .timeline{list-style:none;padding:54px 0 0;margin:54px auto 0;border-top:1px solid #cdd7e4;display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
 .timeline li{margin:0;padding:0}
@@ -50,9 +46,10 @@
 .beyond-grid article{border-top:1px solid #cdd7e4;padding-top:20px}
 .beyond-grid h3{font-size:1.2rem;font-weight:500;margin:0 0 10px}
 .beyond-grid p{margin:0;color:#516074}
-.who-values{border-top:1px solid #cdd7e4;padding-top:28px;max-width:720px}
+.who-essays{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.who-values{border-top:1px solid #cdd7e4;padding-top:28px;margin:0;max-width:none}
 .who-values h3{font-size:.9rem;font-weight:700;letter-spacing:.04em;margin:0 0 16px}
-.who-quote{font-size:1.35rem;line-height:1.45;letter-spacing:-.03em;color:#152438;margin:0 0 20px}
+.who-quote{font-size:1.2rem;line-height:1.45;letter-spacing:-.03em;color:#152438;margin:0 0 20px}
 .who-values p{color:#516074;margin:0 0 16px}
 .who-values p:last-child{margin:0}
 
@@ -63,7 +60,7 @@
 
 @media(max-width:900px){
   .timeline{grid-template-columns:1fr 1fr;gap:28px 24px}
-  .pillars,.experiment-grid,.beyond-grid{grid-template-columns:1fr}
+  .pillars,.experiment-grid,.beyond-grid,.who-essays{grid-template-columns:1fr}
   .intel-models{grid-template-columns:1fr}
 }
 
