@@ -17,105 +17,91 @@ export interface Project {
   id: string;
   number: string;
   title: string;
-  category: 'Applied AI' | 'Enterprise' | 'Automation';
+  category: 'Applied AI' | 'Healthcare data' | 'Clinical operations';
   stage: string;
   duration?: string;
   description: string;
   contribution: string[];
   technologies: string[];
-  visual: 'graph' | 'voice' | 'automation' | 'capture' | 'agent' | 'release' | 'network';
+  visual: 'graph' | 'release' | 'network' | 'voice';
 }
 
 export const projects: Project[] = [
   {
-    id: 'digital-brain', number: '01', title: 'Digital Brain', category: 'Applied AI',
-    stage: 'Discovery & proof of concept', duration: '6 weeks', visual: 'graph',
-    description: 'Connecting code, documentation, and subject-matter knowledge into a contextual enterprise knowledge layer.',
+    id: 'knowledge-studio', number: '01', title: 'Knowledge Studio', category: 'Applied AI',
+    stage: 'Independent platform · in development', visual: 'graph',
+    description: 'A multi-tenant platform that compiles enterprise documents into structured knowledge, then serves Chat, Search, Compare, and a document editor from the same knowledge base.',
     contribution: [
-      'Analyzed codebases, documentation, and SME knowledge to identify onboarding, impact-analysis, operations, and audit use cases.',
-      'Modeled application relationships and dependencies with Neo4j and Cypher.',
-      'Created custom Cursor skills and MCP integrations for persona-specific knowledge retrieval, and supported stakeholder demonstrations.',
+      'Designed a layered architecture: thin FastAPI routes, separate ingestion, retrieval, serving, and reasoning services, and Celery workers for background processing.',
+      'Connected uploads, local folders, S3, Google Drive, SharePoint, OneDrive, and Confluence through incremental, idempotent ingestion.',
+      'Built authorization-first retrieval scoped to tenant and workspace access. Combined pgvector similarity with custom BM25-style lexical scoring and Reciprocal Rank Fusion (k=60), with metadata filters, citations, and abstention when evidence is weak.',
+      'Kept original documents unchanged, made derived outputs rebuildable with lineage, and preserved human corrections across recompiles.',
+      'Served grounded chat, search, compare, and editing from shared structured knowledge, with chunk-to-document citations and token usage tracking.',
     ],
-    technologies: ['Neo4j', 'Cypher', 'Cursor skills', 'MCP'],
+    technologies: ['Python 3.11', 'FastAPI', 'React', 'PostgreSQL · pgvector', 'SQLAlchemy', 'Celery · Valkey', 'Docling', 'LiteLLM', 'Docker · Terraform'],
   },
   {
-    id: 'voice-ai', number: '02', title: 'Conversational Voice AI', category: 'Applied AI',
-    stage: 'Proof of concept', duration: '10 weeks', visual: 'voice',
-    description: 'Voice conversations informed by enterprise knowledge, connected to the workflows behind the conversation.',
+    id: 'knowledge-ontology-platform', number: '02', title: 'Knowledge Ontology & Reasoning Engine', category: 'Applied AI',
+    stage: 'Knowledge graph · local LLM · offline service app', visual: 'graph',
+    description: 'A crane-service knowledge platform that connects manuals to an editable ontology and Neo4j graph, retrieves cited document chunks, and explores both local LLM answers and offline field use.',
     contribution: [
-      'Developed conversational voice workflows using Amazon Nova Sonic 2.',
-      'Integrated Amazon Bedrock knowledge sources and connected the agent to backend workflows through AWS services.',
-      'Supported technical evaluation, solution demonstrations, and proposal preparation.',
+      'Built document ingestion that extracts entities and relations, validates them against an editable domain ontology, and loads the resulting knowledge with provenance into Neo4j.',
+      'Connected graph relationships to Azure AI Search results so relevant manual chunks can ground answers and link back to their source documents.',
+      'Prototyped Muse Glimmer 30B as a locally hosted answer-writing model through llama.cpp, while keeping Azure retrieval and the managed Foundry path independently selectable.',
+      'Built a Flutter and Dart service app around downloadable equipment knowledge packs stored in SQLite, allowing technicians to retrieve manual passages offline.',
+      'Added a Qwen3 local inference path with llama_cpp_dart so the model can explain retrieved passages; model selection and on-device performance validation are still in progress.',
+      'Created browser-based tools for ontology and domain management, document review, and knowledge-base administration.',
     ],
-    technologies: ['Nova Sonic 2', 'Amazon Bedrock', 'AWS', 'Voice AI'],
+    technologies: ['Python', 'Streamlit', 'Neo4j', 'Azure AI Search', 'Muse Glimmer 30B', 'llama.cpp', 'Flutter · Dart', 'Qwen3 · llama_cpp_dart', 'SQLite'],
   },
   {
-    id: 'ai-playwright', number: '04', title: 'AI Playwright', category: 'Automation',
-    stage: 'Team hackathon project', visual: 'automation',
-    description: 'An MCP Automation Director exploring how AI can direct browser testing and make engineering workflows more accessible.',
+    id: 'raphael-voice-bot', number: '03', title: 'Raphael · Personal AI Assistant', category: 'Applied AI',
+    stage: 'Personal AI operating system · active development', visual: 'voice',
+    description: 'A personal AI operating system for chat and voice, project memory, morning reports, an AI news scout, and GitHub activity—all in a user-scoped application.',
     contribution: [
-      'Collaborated on AI-directed browser test automation with Playwright and Model Context Protocol.',
-      'Explored connecting natural-language instructions to repeatable browser workflows.',
-      "The team received a Judges Award and third place in People's Choice at the Relevantz 2025 hackathon.",
+      'Built a browser voice runtime with wake-word handling, phrase buffering, turn gating, barge-in and echo control, recovery behavior, and talk or silent modes.',
+      'Connected browser speech input to server-side OpenAI Whisper transcription and OpenAI text-to-speech responses, with short spoken chat replies.',
+      'Implemented chat context from recent messages and user-scoped project memory, with intent routing for project status, scout, and memory actions.',
+      'Added scheduled morning reports and an RSS-based AI news scout, with heuristic relevance ranking and written explanations of why an item matters.',
+      'Integrated GitHub repository listing, event tracking, and daily snapshots; protected integration tokens with ASP.NET Data Protection.',
+      'Structured the application as a modular .NET 9 monolith with React and TypeScript, PostgreSQL-backed data, Elasticsearch lexical memory search, and Hangfire jobs.',
     ],
-    technologies: ['Playwright', 'MCP', 'AI automation'],
+    technologies: ['C# · .NET 9', 'ASP.NET Core', 'React 19 · TypeScript', 'Web Speech API', 'OpenAI Whisper · TTS', 'PostgreSQL · EF Core', 'Elasticsearch 8', 'Hangfire', 'GitHub API'],
   },
   {
-    id: 'image-to-record', number: '03', title: 'AI Image Capture and Salesforce Integration', category: 'Applied AI',
-    stage: 'Proof of concept', duration: '2 weeks', visual: 'capture',
-    description: 'A mobile image-capture workflow that extracts useful information and routes it into Salesforce.',
+    id: 'medical-record-retrieval', number: '04', title: 'Medical Record Retrieval', category: 'Healthcare data',
+    stage: 'Healthcare platform · 2012–present', visual: 'network',
+    description: 'A healthcare platform for managing medical record requests across provider networks, from submission through secure document exchange.',
     contribution: [
-      'Developed a proof of concept for mobile image capture and AI-based information extraction.',
-      'Integrated extracted information with Salesforce through AWS services and service-bus messaging.',
-      'Supported technical evaluation and demonstrations of the proposed workflow.',
+      'Architected retrieval and request-lifecycle workflows for payer, life sciences, and audit use cases.',
+      'Delivered APIs, portals, file exchange, patient intake, facility discovery, and FHIR workflows.',
+      'Supported production readiness in HIPAA/PHI-governed environments with secure integrations and audit trails.',
     ],
-    technologies: ['Image understanding', 'AWS', 'Salesforce', 'Service bus'],
+    technologies: ['Python', 'Django', 'Next.js', 'AWS', 'REST APIs', 'FHIR'],
   },
   {
-    id: 'knowledge-agents', number: '05', title: 'Knowledge-grounded Agents', category: 'Applied AI',
-    stage: 'Product discovery', duration: '4 weeks', visual: 'agent',
-    description: 'Exploring conversational agents that answer questions with relevant knowledge and a clear business purpose.',
+    id: 'clinical-audit', number: '05', title: 'Clinical Audit & Claims Review', category: 'Clinical operations',
+    stage: 'Healthcare platform', visual: 'release',
+    description: 'A secure audit and claims review platform supporting hospital and insurance audit workflows across more than 4,000 hospitals.',
     contribution: [
-      'Analyzed business requirements and identified conversational AI use cases.',
-      'Defined agent behavior and knowledge sources for retrieval-augmented responses.',
-      'Supported proof-of-concept demonstrations and solution proposals using Microsoft Copilot Studio.',
+      'Implemented document intake and claims review workflows for RAC/MAC operations.',
+      'Built healthcare integrations and structured audit logging to improve traceability.',
+      'Delivered and supported the platform on Microsoft Azure.',
     ],
-    technologies: ['Copilot Studio', 'AI agents', 'RAG'],
-  },
-  {
-    id: 'release-support', number: '06', title: 'Critical Release Support', category: 'Enterprise',
-    stage: 'Production development', duration: '6 weeks', visual: 'release',
-    description: 'Hands-on React development during the final stage of a critical product release.',
-    contribution: [
-      'Supported feature completion and defect resolution in the final development stage.',
-      'Collaborated with the delivery team to address application issues and release readiness.',
-      'Brought practical implementation experience alongside discovery and solution design.',
-    ],
-    technologies: ['React', 'Release readiness', 'Full-stack engineering'],
-  },
-  {
-    id: 'security-analytics', number: '07', title: 'Enterprise Security Analytics', category: 'Enterprise',
-    stage: 'Technical leadership & delivery', visual: 'network',
-    description: 'Engineering for network visibility, threat detection, incident investigation, and response.',
-    contribution: [
-      'Collaborated on requirements, technical design, estimation, and sprint planning.',
-      'Developed reusable React components, backend services, and public APIs documented with OpenAPI and RAML.',
-      'Created automated scenarios and supported beta deployments, defect resolution, and client-site troubleshooting.',
-    ],
-    technologies: ['Java', 'Spring Boot', 'React', 'Docker', 'OpenAPI'],
+    technologies: ['C#', '.NET Core', 'Microsoft Azure', 'Healthcare integrations', 'Audit logging'],
   },
 ];
 
-const featuredProjectIds = new Set(['digital-brain', 'voice-ai', 'image-to-record']);
+const featuredProjectIds = new Set(['knowledge-studio', 'knowledge-ontology-platform', 'raphael-voice-bot', 'medical-record-retrieval', 'clinical-audit']);
 export const featuredProjects = projects.filter(project => featuredProjectIds.has(project.id));
 
 export const expertise = [
-  { id: 'ai', number: '01', title: 'AI & enterprise integration', icon: 'sparkles', description: 'Make AI useful inside the systems people already use. Connect assistants to enterprise tools, knowledge, and workflows.', tools: ['MCP servers', 'Custom skills & plugins', 'OpenAI', 'Claude', 'Amazon Nova Sonic', 'Copilot Studio'], example: 'Voice assistants, knowledge-grounded agents, and AI-assisted workflows.' },
-  { id: 'architecture', number: '02', title: 'Architecture & backend', icon: 'layers', description: 'Design reliable services and the contracts between them, with the implementation and operational reality in view.', tools: ['Java', 'Python', 'Spring Boot', 'REST APIs', 'Microservices', 'SOA', 'Apache Camel', 'Kafka'], example: 'Enterprise integrations, service design, and technical proposals.' },
-  { id: 'web', number: '03', title: 'Application engineering', icon: 'code', description: 'Build the interface and the services behind it. Reusable components, clear state, and practical full-stack delivery.', tools: ['React', 'TypeScript', 'JavaScript', 'Node.js', 'HTML & CSS', 'SASS'], example: 'Reusable application components and critical release support.' },
-  { id: 'knowledge', number: '04', title: 'Data & knowledge systems', icon: 'network', description: 'Model the relationships that make information useful, from relational data to contextual enterprise knowledge.', tools: ['Neo4j', 'Cypher', 'Oracle', 'MySQL', 'MongoDB', 'Redis', 'RAG'], example: 'Dependency analysis, contextual retrieval, and onboarding.' },
-  { id: 'cloud', number: '05', title: 'Cloud & delivery', icon: 'cloud', description: 'Connect applications with cloud services and take solutions through integration, deployment, and production support.', tools: ['AWS', 'Docker', 'Ansible', 'Jenkins', 'Git', 'Linux'], example: 'AWS integrations, containerized delivery, and operational troubleshooting.' },
-  { id: 'quality', number: '06', title: 'Quality & AI-driven SDLC', icon: 'check', description: 'Apply automation and AI across requirements, design, coding, testing, documentation, and operational workflows.', tools: ['Playwright', 'MCP', 'JUnit', 'TestNG', 'Cucumber', 'Cursor', 'GitHub Copilot', 'Amazon Kiro'], example: 'Test automation, reusable AI workflows, and engineering enablement.' },
+  { id: 'ai', number: '01', title: 'AI & document intelligence', icon: 'sparkles', description: 'Build retrieval systems that connect language models to relevant documents and evidence.', tools: ['OpenAI', 'Claude', 'RAG', 'BM25', 'Hybrid retrieval', 'LangGraph', 'Vector search', 'MRR', 'RRF'], example: 'Knowledge Studio, document ingestion, retrieval evaluation, and grounded answers.' },
+  { id: 'architecture', number: '02', title: 'Healthcare architecture & APIs', icon: 'layers', description: 'Translate healthcare workflows into secure applications, APIs, and integrations.', tools: ['.NET / ASP.NET Core', 'Python', 'Django', 'REST APIs', 'FHIR', 'HIPAA / PHI governance'], example: 'Medical record retrieval, patient intake, facility discovery, and secure exchange.' },
+  { id: 'web', number: '03', title: 'Application engineering', icon: 'code', description: 'Build web applications and services across the stack, from user-facing workflows to backend APIs.', tools: ['React', 'Next.js', 'Angular', 'TypeScript', 'JavaScript', 'Node.js'], example: 'Healthcare applications and document intelligence interfaces.' },
+  { id: 'knowledge', number: '04', title: 'Data & retrieval systems', icon: 'network', description: 'Structure and retrieve information so people can find useful, traceable answers.', tools: ['PostgreSQL', 'pgvector', 'OpenSearch', 'Embeddings', 'Vector databases', 'SQL'], example: 'Hybrid retrieval with lexical and semantic ranking.' },
+  { id: 'cloud', number: '05', title: 'Cloud & delivery', icon: 'cloud', description: 'Take secure systems through integration, production readiness, deployment, and support.', tools: ['AWS', 'Microsoft Azure', 'Docker', 'Terraform', 'Azure DevOps', 'CI/CD'], example: 'Cloud-hosted healthcare platforms and secure document exchange.' },
+  { id: 'quality', number: '06', title: 'Security & production readiness', icon: 'check', description: 'Keep regulated systems reliable, auditable, and ready for real-world use.', tools: ['HIPAA / PHI', 'RBAC', 'Audit logging', 'Monitoring', 'Structured logging', 'Production validation'], example: 'Traceable workflows and production launch support.' },
 ] as const;
 
 export const process = [
@@ -126,8 +112,8 @@ export const process = [
 ];
 
 export const experience = [
-  { period: '2012 — present', role: 'Solution Engineer — Healthcare Platforms', organization: 'Relevantz Technology Services (since January 2016)', detail: 'Embedded with a leading medical records provider, delivering secure retrieval, patient intake, facility discovery, clinical audit, claims review, and FHIR workflows. The engagement spans discovery through production launch.' },
+  { period: '2012 — present', role: 'Solution Engineer — Healthcare Platforms', organization: 'Relevantz Technology Services (since January 2016)', detail: 'Embedded with a leading medical records provider, delivering secure retrieval, patient intake, facility discovery, clinical audit, claims review, and FHIR workflows. Client names are confidential.' },
   { period: '2009 — 2012', role: 'Software Engineer (Trainee to Engineer)', organization: 'OKS Prepress Services Pvt Ltd', detail: 'Built and supported C#, ASP.NET, ADO.NET, and SQL applications, growing from trainee to software engineer.' },
 ];
 
-export const domains = ['Network security', 'Telecommunications', 'Banking & finance', 'Healthcare', 'Media'];
+export const domains = ['Healthcare platforms', 'Medical records', 'Clinical audit', 'AI document intelligence'];

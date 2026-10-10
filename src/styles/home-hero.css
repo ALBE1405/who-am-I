@@ -9,7 +9,7 @@
 .hero-cinema .hero-description { font-weight: 500; }
 .home-hero-media { position: absolute; z-index: 1; top: var(--header-height); right: 0; bottom: 0; width: min(59%, 900px); overflow: hidden; }
 .home-hero-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 76% center; filter: brightness(.88) saturate(.82); }
-.home-hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #10171d 0%, #10171dcc 17%, #10171d55 43%, transparent 72%), linear-gradient(0deg, #10171d44, transparent 32%); pointer-events: none; }
+.home-hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #182831 0%, #182831cc 17%, #18283155 43%, transparent 72%), linear-gradient(0deg, #18283144, transparent 32%); pointer-events: none; }
 .hero-cinema .hero-bottom { position: absolute; z-index: 3; bottom: 30px; left: 0; right: 0; margin-top: 0; }
 .hero-cinema .hero-bottom > span { font-size: 12px; font-weight: 600; line-height: 1.6; letter-spacing: .04em; max-width: 370px; text-align: right; }
 .hero-cinema .wave-divider { display: none; }
@@ -23,7 +23,7 @@
   .hero-cinema { min-height: max(960px, 100svh); }
   .home-hero-media { top: 90px; right: 0; bottom: auto; width: 76%; height: 390px; }
   .home-hero-image { object-position: 76% 40%; }
-  .home-hero-media::after { background: linear-gradient(90deg, #10171d 0%, #10171d88 20%, transparent 70%), linear-gradient(0deg, #10171d 0%, transparent 42%); }
+  .home-hero-media::after { background: linear-gradient(90deg, #182831 0%, #18283188 20%, transparent 70%), linear-gradient(0deg, #182831 0%, transparent 42%); }
   .hero-cinema .hero-grid { padding-top: 475px; margin-bottom: 145px; }
   .hero-cinema .hero-copy { max-width: 620px; }
   .hero-cinema .hero-copy h1 { font-size: 66px; margin-top: 15px; }
@@ -37,7 +37,7 @@
   .hero-cinema { min-height: max(900px, 100svh); }
   .home-hero-media { top: 82px; right: -5%; width: 100%; height: 305px; }
   .home-hero-image { object-position: 76% 38%; }
-  .home-hero-media::after { background: linear-gradient(90deg, #10171d 0%, #10171d55 28%, transparent 74%), linear-gradient(0deg, #10171d 0%, transparent 45%); }
+  .home-hero-media::after { background: linear-gradient(90deg, #182831 0%, #18283155 28%, transparent 74%), linear-gradient(0deg, #182831 0%, transparent 45%); }
   .hero-cinema .hero-intro { font-size: 10px; gap: 4px 10px; }
   .hero-cinema .hero-grid { padding-top: 390px; margin-bottom: 132px; }
   .hero-cinema .hero-copy h1 { font-size: 48px; margin-top: 12px; }

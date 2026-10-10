@@ -12,9 +12,9 @@ export function HomeHero() {
       <span className="eyebrow hero-intro"><span>Albert Arokiyasouridass</span><span className="hero-location">{profile.location}</span></span>
       <h1 id="hero-heading">Hi, I'm <span>Albert.</span></h1>
       <p className="hero-role">{profile.role}<br /><span>{profile.aiRole}</span></p>
-      <p className="hero-description">I build secure healthcare platforms and research practical AI for document intelligence, from discovery through production.</p>
+      <p className="hero-description">I build systems that turn complex healthcare data, workflows, and domain knowledge into intelligent, usable software.</p>
       <div className="actions"><ButtonLink href={url('work')} variant="dark">Explore my work</ButtonLink><ResumeLink variant="outline" /></div>
-      <div className="hero-social"><SocialLinks labels /><span className="hero-position">Senior Solution Engineer<br />at Relevantz</span></div>
+      <div className="hero-social"><SocialLinks labels /><span className="hero-position">Solution Engineer<br />at Relevantz</span></div>
     </div></div>
     <div className="hero-bottom container"><a href="#selected-work">Scroll to explore<ArrowDown size={16} aria-hidden="true" /></a><span>Healthcare software from discovery to production</span></div>
     <WaveDivider fill="var(--background)" />

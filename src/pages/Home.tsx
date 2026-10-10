@@ -1,4 +1,4 @@
-import { ArrowUpRight, AudioLines, Network, ScanLine } from 'lucide-react';
+import { ArrowUpRight, Network, ScanLine, FileCheck2 } from 'lucide-react';
 import { profile, featuredProjects, domains } from '../data/portfolio';
 import { useSite } from '../components/SiteContext';
 import { HomeHero } from '../components/HomeHero';
@@ -13,7 +13,7 @@ export function Home() {
     <HomeHero />
 
     <section id="selected-work" className="section selected-work grid-texture"><div className="container">
-      <div className="section-heading-row"><SectionHeading label="Selected work" title={<>Ideas, connected.<br />Solutions, built.</>}>A few explorations at the intersection of enterprise engineering and applied AI.</SectionHeading><a href={url('work')} className="text-link">All work <span className="count">07</span><ArrowUpRight size={20} aria-hidden="true" /></a></div>
+      <div className="section-heading-row"><SectionHeading label="Selected work" title={<>Ideas, connected.<br />Solutions, built.</>}>AI projects alongside the healthcare platforms and workflows I build.</SectionHeading><a href={url('work')} className="text-link">All work <span className="count">05</span><ArrowUpRight size={20} aria-hidden="true" /></a></div>
       <div className="project-list">{featuredProjects.map((project, i) => <ProjectCard key={project.id} project={project} featured={i === 0} />)}</div>
     </div></section>
 
@@ -24,7 +24,7 @@ export function Home() {
         <p>Since 2024, I have researched generative AI for document intelligence, including hybrid BM25 and vector retrieval, LangGraph workflows, and retrieval quality evaluation. My focus is making answers easier to ground and verify.</p>
         <ul className="about-ai-highlights" aria-label="Applied AI focus">
           <li><Network size={24} aria-hidden="true" /><span>Connected knowledge</span></li>
-          <li><AudioLines size={24} aria-hidden="true" /><span>Conversational AI</span></li>
+          <li><FileCheck2 size={24} aria-hidden="true" /><span>Evidence-grounded answers</span></li>
           <li><ScanLine size={24} aria-hidden="true" /><span>AI integration</span></li>
         </ul>
         <p>My healthcare work includes platforms supporting clinical audit and claims review across more than 4,000 hospitals.</p>
@@ -35,10 +35,10 @@ export function Home() {
     <Process />
 
     <section className="section expertise-preview"><div className="container"><div className="section-heading-row"><SectionHeading label="Connected capabilities" title={<>Depth in engineering.<br />Breadth in perspective.</>} /><ButtonLink href={url('expertise')} variant="outline">Explore my expertise</ButtonLink></div><div className="capability-list">{[
-      ['01', 'Enterprise engineering', 'Java, Spring Boot, React, APIs, and integration.'],
-      ['02', 'Applied AI & knowledge', 'MCP, custom skills, voice AI, and knowledge graphs.'],
-      ['03', 'Architecture & delivery', 'From discovery and design to deployment and support.'],
-    ].map(([number, title, text]) => <a href={url('expertise')} className="capability-row" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p><ArrowUpRight aria-hidden="true" /></a>)}</div><div className="domain-strip"><span>Across industries</span>{domains.map(domain => <span key={domain}>{domain}</span>)}</div></div></section>
+      ['01', 'Enterprise engineering', '.NET, Python, React, APIs, and healthcare integrations.'],
+      ['02', 'Applied AI & knowledge', 'Hybrid retrieval, citations, LangGraph, and document intelligence.'],
+      ['03', 'Architecture & delivery', 'From discovery and design to secure production systems.'],
+    ].map(([number, title, text]) => <a href={url('expertise')} className="capability-row" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p><ArrowUpRight aria-hidden="true" /></a>)}</div><div className="domain-strip"><span>Selected focus areas</span>{domains.map(domain => <span key={domain}>{domain}</span>)}</div></div></section>
     <ContactBanner />
   </>;
 }

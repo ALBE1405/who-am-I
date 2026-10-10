@@ -1,6 +1,6 @@
 .hero { min-height: 860px; position: relative; overflow: hidden; padding: 100px 0 110px; }
 .hero-background { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.hero.accent-section { background-color: #10171d !important; color: var(--paper); --muted: #c1d1dc; --line: #ffffff30; }
+.hero.accent-section { background-color: #182831 !important; color: var(--paper); --muted: #c1d1dc; --line: #ffffff30; }
 .home-about.accent-section { background: var(--background); color: var(--ink); --muted: #526a7a; --line: #16344a24; }
 .contact-banner.accent-section { background: #1685b6; color: var(--paper); --muted: #e0eff5; --line: #ffffff55; }
 .hero-background span { width: 24%; height: 180%; background: #1685b618; transform: rotate(-25deg); position: absolute; top: -50%; right: 16%; }
@@ -55,7 +55,8 @@
 .about-hero .badge-bottom strong { font-size: 20px; }
 .about-hero .section-heading h1 { font-size: clamp(44px, 5vw, 75px); }
 .about-hero .section-description { font-size: 20px; }
-.about-hero-grid > div > p { margin-top: 20px; font-size: 14px; }
+.about-hero .about-story { display: grid; gap: 12px; max-width: 640px; margin-top: 20px; }
+.about-hero .about-story p { font-size: 14px; }
 .about-hero .actions { margin-top: 30px; }
 .about-star { position: absolute; bottom: 80px; left: 25%; width: 35px; height: 35px; }
 .oversized-number { font-size: 170px; line-height: .8; letter-spacing: -.08em; font-weight: 700; color: #526a7a; }

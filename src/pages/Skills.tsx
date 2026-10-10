@@ -47,7 +47,7 @@ export function Skills() {
             From enterprise foundations to applied AI. The technologies and practices I bring together to make complex things work.
           </SectionHeading>
           <a className="skills-explore" href="#skill-library">Explore the toolkit<ArrowDown size={18} aria-hidden="true" /></a>
-          <div className="skills-hero-stats"><div><strong>{skillCount}</strong><span>TOOLS & PRACTICES</span></div><div><strong>08</strong><span>CONNECTED DISCIPLINES</span></div><div><strong>17+</strong><span>YEARS OF BUILDING</span></div></div>
+          <div className="skills-hero-stats"><div><strong>{skillCount}</strong><span>TOOLS & PRACTICES</span></div><div><strong>06</strong><span>CONNECTED DISCIPLINES</span></div><div><strong>17+</strong><span>YEARS OF BUILDING</span></div></div>
         </div>
         <motion.div className="skills-hero-art" style={reducedMotion ? undefined : { y }}><SkillConstellation /></motion.div>
       </div>
@@ -94,7 +94,7 @@ export function Skills() {
     <section className="section light-section grid-texture skills-in-practice"><div className="container">
       <div><SectionHeading label="Tools are only the start" title={<>The value is in<br />what we build.</>}>I bring this toolkit into real systems, shaped by the people and industries they serve.</SectionHeading>
         <div className="actions"><ButtonLink href={url('work')} variant="dark">See the work</ButtonLink><ButtonLink href={url('expertise')} variant="outline">Explore my expertise</ButtonLink></div>
-      </div><div className="skills-domain-panel" data-reveal><Sparkles size={28} strokeWidth={1.3} aria-hidden="true" /><span className="eyebrow">EXPERIENCE ACROSS INDUSTRIES</span><ul>{domains.map((domain, index) => <li key={domain}><span>0{index + 1}</span>{domain}</li>)}</ul></div>
+      </div><div className="skills-domain-panel" data-reveal><Sparkles size={28} strokeWidth={1.3} aria-hidden="true" /><span className="eyebrow">AREAS OF FOCUS</span><ul>{domains.map((domain, index) => <li key={domain}><span>0{index + 1}</span>{domain}</li>)}</ul></div>
     </div></section>
   </>;
 }
