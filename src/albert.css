@@ -44,6 +44,7 @@
 .in-practice .project{padding:40px 0 8px;border-top:1px solid #cdd7e4;border-bottom:0}
 .in-practice .project h3{font-size:clamp(1.45rem,2vw,1.75rem);margin:12px 0 8px}
 .in-practice .project .project-name{color:#314c73;font-weight:600}
+.case .journey-path{margin:4px 0 8px;font-size:.88rem}
 .case .case-label{display:block;font-size:.68rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#174bd5;margin:18px 0 6px}
 .case-decisions{font-size:.95rem;letter-spacing:-.01em}
 
@@ -85,6 +86,42 @@
 .who-values p:last-child{margin:0}
 .who-last{font-size:clamp(1.3rem,2vw,1.65rem);line-height:1.35;letter-spacing:-.035em;color:#152438;margin-top:28px;max-width:18em}
 
+nav{gap:22px;flex-wrap:wrap;justify-content:flex-end}
+.contact-links{flex-wrap:wrap}
+nav a:last-child{font-weight:700}
+nav a[aria-current="page"]{color:#174bd5;font-weight:700}
+
+.page-intro{padding:72px 0 20px}
+.page-intro h1{font-size:clamp(2.6rem,5.4vw,4.6rem);margin:0 0 28px}
+.page-lead{font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.5;color:#516074;max-width:38rem;margin:0 0 8px}
+.page-intro .text-link{margin-top:28px}
+
+.home-work{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 36px}
+.home-work article{border-top:2px solid #174bd5;padding-top:24px}
+.home-work .eyebrow{margin-bottom:16px}
+.home-work h3{font-size:clamp(1.25rem,1.7vw,1.45rem);line-height:1.3;letter-spacing:-.035em;margin:0 0 10px;font-weight:500}
+.home-work .project-name{font-size:.875rem;font-weight:700;color:#152438;margin:0 0 8px}
+.home-work p{color:#516074;margin:0 0 16px}
+.home-work a{font-weight:700;border-bottom:1px solid #174bd5;padding-bottom:3px}
+.home-more{margin:48px 0 0}
+.home-more a{font-weight:700;border-bottom:1px solid #174bd5;padding-bottom:4px}
+
+.category-nav{display:flex;flex-wrap:wrap;gap:28px 36px;margin-top:48px}
+.category-nav a{display:inline-flex;gap:12px;align-items:baseline;font-size:1.05rem;font-weight:500;border-bottom:1px solid #cdd7e4;padding-bottom:8px}
+.category-nav a span{color:#174bd5;font-size:.75rem;font-weight:700}
+
+.contact-banner{background:#101f34;color:#eef4ff;padding:56px 0}
+.contact-banner .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px}
+.contact-banner p{font-size:clamp(1.5rem,2.6vw,2.15rem);letter-spacing:-.04em;margin:0;line-height:1.25;max-width:16em}
+.contact-banner a{font-weight:700;border-bottom:1px solid #8da8d2;padding-bottom:4px;margin-right:28px;color:#eef4ff}
+.contact-banner a:hover{color:#fff}
+
+.skill-why{color:#152438;font-weight:500;margin:0 0 8px}
+
+.process-list{counter-reset:step}
+.process-list li{counter-increment:step}
+.process-list li::before{content:counter(step,decimal-leading-zero);display:block;font-size:.72rem;font-weight:700;letter-spacing:.14em;color:#174bd5;margin-bottom:8px}
+
 .ask{padding-top:80px}
 .ask-list{list-style:none;display:flex;flex-wrap:wrap;gap:14px 22px;padding:0;margin:0}
 .ask-list a{display:inline;padding:0;border:0;border-bottom:1px solid #cdd7e4;border-radius:0;font-size:1rem;color:#314c73}
@@ -102,7 +139,8 @@
 }
 
 @media(max-width:900px){
-  .pillars,.experiment-grid,.beyond-grid,.who-essays{grid-template-columns:1fr}
+  .pillars,.experiment-grid,.beyond-grid,.who-essays,.home-work{grid-template-columns:1fr}
+  .contact-banner .wrap{flex-direction:column;align-items:flex-start}
   .intel-models{display:flex;flex-direction:column;gap:10px}
   .who{padding-top:88px;padding-bottom:72px}
   .who-essays{gap:48px}
@@ -122,7 +160,7 @@
   .intel-figure{padding:8px 0;max-width:none}
   .beliefs li{font-size:1.15rem}
   .display-line,.who-last{font-size:1.3rem;max-width:none}
-  nav{flex-wrap:wrap;row-gap:10px}
+  nav{flex-wrap:wrap;row-gap:10px;justify-content:flex-start}
 }
 
 @media(max-width:420px){

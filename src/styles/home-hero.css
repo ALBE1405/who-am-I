@@ -1,0 +1,51 @@
+.hero-cinema { min-height: max(820px, 100svh); }
+.hero-cinema .hero-grid { display: block; position: relative; z-index: 2; padding-top: 160px; margin-bottom: 155px; }
+.hero-cinema .hero-copy { position: relative; z-index: 2; max-width: 560px; padding: 0; }
+.hero-cinema .hero-intro { display: flex; flex-wrap: wrap; gap: 6px 12px; max-width: none; font-size: 12px; font-weight: 600; line-height: 1.6; letter-spacing: .07em; }
+.hero-cinema .hero-location { display: inline-flex; align-items: center; gap: 12px; }
+.hero-cinema .hero-location::before { content: ""; width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.hero-cinema .hero-copy h1 { font-size: clamp(62px, 6.5vw, 100px); margin-top: 26px; }
+.hero-cinema .hero-role { font-size: clamp(30px, 3vw, 44px); }
+.hero-cinema .hero-description { font-weight: 500; }
+.home-hero-media { position: absolute; z-index: 1; top: var(--header-height); right: 0; bottom: 0; width: min(59%, 900px); overflow: hidden; }
+.home-hero-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 76% center; filter: brightness(.88) saturate(.82); }
+.home-hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #10171d 0%, #10171dcc 17%, #10171d55 43%, transparent 72%), linear-gradient(0deg, #10171d44, transparent 32%); pointer-events: none; }
+.hero-cinema .hero-bottom { position: absolute; z-index: 3; bottom: 30px; left: 0; right: 0; margin-top: 0; }
+.hero-cinema .hero-bottom > span { font-size: 12px; font-weight: 600; line-height: 1.6; letter-spacing: .04em; max-width: 370px; text-align: right; }
+.hero-cinema .wave-divider { display: none; }
+
+@media (max-width: 1100px) and (min-width: 850px) {
+  .hero-cinema .hero-copy { max-width: 48%; }
+  .home-hero-media { width: 58%; }
+}
+
+@media (max-width: 849px) {
+  .hero-cinema { min-height: max(960px, 100svh); }
+  .home-hero-media { top: 90px; right: 0; bottom: auto; width: 76%; height: 390px; }
+  .home-hero-image { object-position: 76% 40%; }
+  .home-hero-media::after { background: linear-gradient(90deg, #10171d 0%, #10171d88 20%, transparent 70%), linear-gradient(0deg, #10171d 0%, transparent 42%); }
+  .hero-cinema .hero-grid { padding-top: 475px; margin-bottom: 145px; }
+  .hero-cinema .hero-copy { max-width: 620px; }
+  .hero-cinema .hero-copy h1 { font-size: 66px; margin-top: 15px; }
+  .hero-cinema .hero-role { font-size: 32px; margin-top: 15px; }
+  .hero-cinema .hero-description { margin-top: 18px; max-width: 440px; }
+  .hero-cinema .hero-copy .actions { margin-top: 23px; }
+  .hero-cinema .hero-social { margin-top: 22px; display: flex; }
+}
+
+@media (max-width: 599px) {
+  .hero-cinema { min-height: max(900px, 100svh); }
+  .home-hero-media { top: 82px; right: -5%; width: 100%; height: 305px; }
+  .home-hero-image { object-position: 76% 38%; }
+  .home-hero-media::after { background: linear-gradient(90deg, #10171d 0%, #10171d55 28%, transparent 74%), linear-gradient(0deg, #10171d 0%, transparent 45%); }
+  .hero-cinema .hero-intro { font-size: 10px; gap: 4px 10px; }
+  .hero-cinema .hero-grid { padding-top: 390px; margin-bottom: 132px; }
+  .hero-cinema .hero-copy h1 { font-size: 48px; margin-top: 12px; }
+  .hero-cinema .hero-role { font-size: 25px; margin-top: 13px; }
+  .hero-cinema .hero-description { font-size: 13px; line-height: 1.5; margin-top: 14px; }
+  .hero-cinema .hero-copy .actions { gap: 8px; margin-top: 18px; }
+  .hero-cinema .hero-copy .button { padding: 12px 13px; gap: 8px; font-size: 10px; }
+  .hero-cinema .hero-social { display: none; }
+  .hero-cinema .hero-bottom { bottom: 22px; }
+  .hero-cinema .hero-bottom > span { font-size: 9px; max-width: 48%; }
+}

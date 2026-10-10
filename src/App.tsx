@@ -1,20 +1,15 @@
-import { useEffect, useState } from 'react';
-import AlbertPage from './AlbertPage';
-import SunilPage from './SunilPage';
+import type { PageId } from './lib/urls';
+import { SiteLayout } from './components/SiteLayout';
+import { Home } from './pages/Home';
+import { About } from './pages/About';
+import { Skills } from './pages/Skills';
+import { Work } from './pages/Work';
+import { Expertise } from './pages/Expertise';
+import { Connect } from './pages/Connect';
 
-function isSunilPath(pathname: string) {
-  const clean = pathname.replace(/\/+$/, '') || '/';
-  return clean === '/sunil' || clean.endsWith('/sunil');
-}
+const pages = { home: Home, about: About, skills: Skills, work: Work, expertise: Expertise, connect: Connect };
 
-export default function App() {
-  const [sunil, setSunil] = useState(() => isSunilPath(window.location.pathname));
-
-  useEffect(() => {
-    const sync = () => setSunil(isSunilPath(window.location.pathname));
-    window.addEventListener('popstate', sync);
-    return () => window.removeEventListener('popstate', sync);
-  }, []);
-
-  return sunil ? <SunilPage /> : <AlbertPage />;
+export function App({ page, base }: { page: PageId; base: string }) {
+  const Page = pages[page];
+  return <SiteLayout page={page} base={base}><Page /></SiteLayout>;
 }
