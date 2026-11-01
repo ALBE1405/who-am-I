@@ -9,7 +9,6 @@ export const profile = {
   phone: '+1-404-698-7471',
   linkedin: 'https://www.linkedin.com/in/albert-arokiya-souridass-ece/',
   github: 'https://github.com/ALBE1405/',
-  resume: 'Albert-Arokiyasouridass-resume.pdf',
   introduction: 'Healthcare Solutions Engineer with 17+ years delivering secure, HIPAA-compliant software. I build medical record, patient intake, clinical audit, and FHIR workflows, and research AI document intelligence with hybrid retrieval and evidence-grounded answers.',
 };
 

@@ -107,7 +107,6 @@
   .contact-main { grid-template-columns: 1fr 1fr; gap: 40px; }
   .email-address { font-size: 24px; gap: 15px; }
   .contact-links a { gap: 15px; }
-  .connect-resume h2 { font-size: 36px; }
 }
 @media (max-width: 599px) {
   .container { width: calc(100% - 40px); }
@@ -203,6 +202,4 @@
   .connect-intro > span { text-align: left; }
   .contact-main { grid-template-columns: 1fr; gap: 40px; }
   .email-address { font-size: 20px; }
-  .connect-resume { padding: 60px 0; }
-  .connect-resume h2 { font-size: 34px; }
 }

@@ -6,5 +6,5 @@ export const pageMetadata: Record<PageId, { title: string; description: string }
   skills: { title: 'Skills & Toolkit | Albert Arokiyasouridass', description: 'Explore Albert\'s complete toolkit: AI platforms, languages, web engineering, integration, data, cloud, quality, and delivery practices.' },
   work: { title: 'Selected Work | Albert Arokiyasouridass', description: 'Explore enterprise knowledge graphs, conversational voice AI, MCP automation, and application engineering by Albert Arokiyasouridass.' },
   expertise: { title: 'Expertise | Albert Arokiyasouridass', description: 'Healthcare platforms, secure integrations, cloud architecture, and AI document intelligence grounded in 17+ years of engineering.' },
-  connect: { title: 'Connect with Albert | Albert Arokiyasouridass', description: 'Connect with Albert Arokiyasouridass about enterprise architecture, applied AI, knowledge systems, and software engineering. Download the resume.' },
+  connect: { title: 'Connect with Albert | Albert Arokiyasouridass', description: 'Connect with Albert Arokiyasouridass about enterprise architecture, applied AI, knowledge systems, and software engineering.' },
 };

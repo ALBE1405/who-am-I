@@ -126,6 +126,3 @@
 .copy-status { font-size: 10px; max-width: 240px; }
 .contact-links a { padding: 25px 0; display: flex; gap: 15px; align-items: center; border-bottom: 1px solid var(--line); }
 .contact-links a:hover { color: var(--accent); }
-.connect-resume { margin-top: 100px; padding: 90px 0; border-top: 1px solid var(--line); }
-.connect-resume h2 { font-size: clamp(42px, 5vw, 62px); margin-top: 24px; }
-.connect-resume .button { margin-top: 35px; }

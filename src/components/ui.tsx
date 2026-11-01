@@ -1,22 +1,15 @@
 import { type ReactNode } from 'react';
-import { ArrowUpRight, ArrowRight, Download, CodeXml, BriefcaseBusiness, Mail } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, CodeXml, BriefcaseBusiness, Mail } from 'lucide-react';
 import { profile } from '../data/portfolio';
-import { useSite } from './SiteContext';
 
-export function ButtonLink({ href, children, variant = 'light', className = '', download = false }: {
-  href: string; children: ReactNode; variant?: 'light' | 'dark' | 'outline' | 'accent'; className?: string; download?: boolean;
+export function ButtonLink({ href, children, variant = 'light', className = '' }: {
+  href: string; children: ReactNode; variant?: 'light' | 'dark' | 'outline' | 'accent'; className?: string;
 }) {
   const external = href.startsWith('https:');
   return <a className={`button button-${variant} ${className}`} href={href}
-    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-    {...(download ? { download: 'AlbertArokiyasouridass_Resume.pdf' } : {})}>
-    {children}{download ? <Download size={17} aria-hidden="true" /> : external ? <ArrowUpRight size={18} aria-hidden="true" /> : <ArrowRight size={18} aria-hidden="true" />}
+    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+    {children}{external ? <ArrowUpRight size={18} aria-hidden="true" /> : <ArrowRight size={18} aria-hidden="true" />}
   </a>;
-}
-
-export function ResumeLink({ variant = 'outline' }: { variant?: 'light' | 'dark' | 'outline' | 'accent' }) {
-  const { asset } = useSite();
-  return <ButtonLink href={asset(profile.resume)} variant={variant} download>Download resume</ButtonLink>;
 }
 
 export function SectionHeading({ label, title, children, className = '', as: Heading = 'h2' }: {
